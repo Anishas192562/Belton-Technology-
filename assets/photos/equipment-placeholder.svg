@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#f2f4f7"/>
+  <rect x="70" y="70" width="760" height="460" rx="28" fill="#ffffff" stroke="#d0d5dd" stroke-width="4"/>
+  <circle cx="450" cy="245" r="70" fill="#fee4e2"/>
+  <path d="M350 380h200l-55-80-42 48-28-34z" fill="#b0002a" opacity="0.8"/>
+  <text x="450" y="455" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#667085">Equipment Photo</text>
+</svg>

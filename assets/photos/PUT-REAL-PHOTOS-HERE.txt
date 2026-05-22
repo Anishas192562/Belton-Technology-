@@ -1,0 +1,6 @@
+Put real building and equipment photos in this folder.
+
+Use relative paths, for example:
+<img src="assets/photos/building-a-photo.jpg" alt="Building A">
+
+Do not use full computer paths such as /Users/a3/Desktop/...
