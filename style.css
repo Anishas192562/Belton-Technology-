@@ -618,3 +618,13 @@ th {
     transform: translateY(-50%);
   }
 }
+
+/* Lift effect for building overview stat cards */
+.two-stat-grid .stat {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.two-stat-grid .stat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(16, 24, 40, 0.14);
+}
