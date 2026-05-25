@@ -591,3 +591,30 @@ th {
   font-weight: 800;
   font-size: 16px;
 }
+
+.equipment-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.equipment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(16, 24, 40, 0.13);
+}
+
+
+
+.hero-text {
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
