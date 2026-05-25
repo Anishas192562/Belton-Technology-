@@ -42,8 +42,8 @@
     </p>
   </div>
 
-  <button class="carousel-btn prev-btn"></button>
-<button class="carousel-btn next-btn"></button>
+<button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous slide"></button>
+<button class="carousel-btn next-btn" id="nextBtn" aria-label="Next slide"></button>
 </section>
 
     <section class="section">
@@ -72,7 +72,6 @@
     <section class="section">
       <div class="container">
         <div class="section-title">
-          <p class="eyebrow">Equipment Register</p>
           <h2>Building C Equipment</h2>
         </div>
         <div class="equipment-grid">
@@ -83,7 +82,7 @@
               <h3>Main Distribution Board MDB1</h3>
               <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C1, 2 MVA; DB-CNC-01 to DB-CNC-13.</dd></div>
                 <div><dt>Function</dt><dd>Electrical distribution for CNC loads.</dd></div>
               </dl>
@@ -97,7 +96,7 @@
               <h3>Main Distribution Board MDB2</h3>
               <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C2, 3 MVA; wet scrubber, DI water plant, oil mist, wastewater treatment plant, chiller no.01 to no.04, support panels and air compressors.</dd></div>
                 <div><dt>Function</dt><dd>Electrical distribution for utility and support equipment.</dd></div>
               </dl>
@@ -111,7 +110,7 @@
               <h3>Main Distribution Board MDB3</h3>
               <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C3, 3 MVA; chemical clean, degreasing, final clean, MPM deburring/drilling and ECP loads.</dd></div>
                 <div><dt>Function</dt><dd>Electrical distribution for process equipment.</dd></div>
               </dl>
@@ -125,7 +124,7 @@
               <h3>Main Distribution Board MDB4</h3>
               <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C4, 2 MVA; DB-CNC-01 to DB-CNC-09 and air compressor S-220.</dd></div>
                 <div><dt>Function</dt><dd>Electrical distribution for CNC and compressor loads.</dd></div>
               </dl>
@@ -139,7 +138,7 @@
               <h3>Chiller</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C Chiller Area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>160 RT x 4 units.</dd></div>
                 <div><dt>Function</dt><dd>Provides chilled water for Building C cooling demand.</dd></div>
               </dl>
@@ -153,7 +152,7 @@
               <h3>Cooling Tower</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C Cooling Tower Area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>200 RT x 4 units.</dd></div>
                 <div><dt>Function</dt><dd>Rejects heat from the chilled water system.</dd></div>
               </dl>
@@ -167,7 +166,7 @@
               <h3>Cooling Water Pump</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C Pump Area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>5 units.</dd></div>
                 <div><dt>Function</dt><dd>Circulates cooling water between chiller and cooling tower.</dd></div>
               </dl>
@@ -181,7 +180,7 @@
               <h3>Chilled Water Pump</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C Pump Area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>5 units.</dd></div>
                 <div><dt>Function</dt><dd>Circulates chilled water to AHU, FCU and process cooling users.</dd></div>
               </dl>
@@ -195,7 +194,7 @@
               <h3>Air Compressor</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C CDA Area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Quantity and motor rating to be added.</dd></div>
                 <div><dt>Function</dt><dd>Provides compressed air for CDA system.</dd></div>
               </dl>
@@ -209,7 +208,7 @@
               <h3>Wet Scrubber</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C Process Exhaust Area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Airflow, pump and scrubber media details to be added.</dd></div>
                 <div><dt>Function</dt><dd>Treats contaminated exhaust air from process areas.</dd></div>
               </dl>
@@ -223,7 +222,7 @@
               <h3>Oil Mist Collector</h3>
               <p class="equipment-location"><strong>Location:</strong> Building C production area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Airflow, fan rating and filter specification to be added.</dd></div>
                 <div><dt>Function</dt><dd>Collects oil mist and improves air quality.</dd></div>
               </dl>
@@ -237,7 +236,7 @@
               <h3>RO/DI Water System</h3>
               <p class="equipment-location"><strong>Location:</strong> Plant C / D&E support area</p>
               <dl>
-                <div><dt>Brand / Make</dt><dd>To be confirmed</dd></div>
+                <div><dt>Brand</dt><dd>To be confirmed</dd></div>
                 <div><dt>Main Parameters</dt><dd>Flow rate, tank capacity and water quality parameters to be added.</dd></div>
                 <div><dt>Function</dt><dd>Provides treated water for production and utility use.</dd></div>
               </dl>
