@@ -47,10 +47,20 @@
             </p>
           </div>
 
-          <div class="stat-grid">
-            <div class="stat"><strong>33,963</strong><span>sq.m land area</span></div>
-            <div class="stat"><strong>6</strong><span>Buildings</span></div>
-          </div>
+          <div class="stat-grid interactive-stats">
+  <button class="stat stat-button" type="button" data-message="Belton Technology has a total land area of 33,963 sq.m.">
+    <strong class="counter" data-target="33963">0</strong>
+    <span>sq.m land area</span>
+  </button>
+
+  <button class="stat stat-button" type="button" data-message="Belton Technology has 6 buildings. Click again to explore the building directory." data-scroll-target="building-directory">
+    <strong class="counter" data-target="6">0</strong>
+    <span>Buildings</span>
+  </button>
+</div>
+
+<p id="stat-message" class="stat-message"></p>
+         
         </div>
 
         <div>
@@ -78,7 +88,7 @@
       </div>
     </section>
 
-    <section class="section">
+   <section class="section" id="building-directory">
       <div class="container">
         <div class="section-title">
           <h2>Building Directory</h2>
@@ -114,8 +124,55 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>Belton Technology | Facility Portal</p>
-  </footer>
+ <footer class="site-footer">
+  <p>Belton Technology | Facility Portal</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll(".counter");
+    const statButtons = document.querySelectorAll(".stat-button");
+    const messageBox = document.getElementById("stat-message");
+
+    counters.forEach(function (counter) {
+      const target = Number(counter.dataset.target);
+      let current = 0;
+      const steps = 80;
+      const increment = target / steps;
+
+      function updateCounter() {
+        current += increment;
+
+        if (current < target) {
+          counter.textContent = Math.ceil(current).toLocaleString();
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      }
+
+      updateCounter();
+    });
+
+    statButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const message = button.dataset.message;
+        const scrollTarget = button.dataset.scrollTarget;
+
+        if (messageBox) {
+          messageBox.textContent = message;
+        }
+
+        if (scrollTarget) {
+          const section = document.getElementById(scrollTarget);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -536,3 +536,58 @@ th {
   transform: rotate(-45deg);
   margin-right: 4px;
 }
+
+/* Fix header background color */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  background: #ffffff;
+}
+
+.top-nav {
+  background: transparent;
+}
+
+.top-nav a {
+  color: #344054;
+}
+
+
+/* Interactive stat cards */
+
+.interactive-stats {
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+}
+
+.stat-button {
+  width: 100%;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.stat-button:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(16, 24, 40, 0.16);
+  background: #fff7f7;
+}
+
+.stat-button:active {
+  transform: scale(0.98);
+}
+
+.stat-button:focus {
+  outline: 3px solid #fda29b;
+  outline-offset: 3px;
+}
+
+.stat-message {
+  margin-top: 16px;
+  color: var(--belton-red);
+  font-weight: 800;
+  font-size: 16px;
+}
