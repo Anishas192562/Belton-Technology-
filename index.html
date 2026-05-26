@@ -20,6 +20,7 @@
   <a href="buildingC.html">Building C</a>
   <a href="buildingD.html">Building D</a>
   <a href="buildingE.html">Building E</a>
+
 </nav>
     </div>
   </header>
@@ -128,51 +129,7 @@
   <p>Belton Technology | Facility Portal</p>
 </footer>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const counters = document.querySelectorAll(".counter");
-    const statButtons = document.querySelectorAll(".stat-button");
-    const messageBox = document.getElementById("stat-message");
-
-    counters.forEach(function (counter) {
-      const target = Number(counter.dataset.target);
-      let current = 0;
-      const steps = 80;
-      const increment = target / steps;
-
-      function updateCounter() {
-        current += increment;
-
-        if (current < target) {
-          counter.textContent = Math.ceil(current).toLocaleString();
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = target.toLocaleString();
-        }
-      }
-
-      updateCounter();
-    });
-
-    statButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        const message = button.dataset.message;
-        const scrollTarget = button.dataset.scrollTarget;
-
-        if (messageBox) {
-          messageBox.textContent = message;
-        }
-
-        if (scrollTarget) {
-          const section = document.getElementById(scrollTarget);
-          if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-      });
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
