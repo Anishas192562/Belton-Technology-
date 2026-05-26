@@ -214,3 +214,46 @@ document.addEventListener("DOMContentLoaded", function () {
     revealObserver.observe(element);
   });
 });
+
+
+
+let currentFontSize = 16;
+
+function increaseText() {
+  if (currentFontSize < 22) {
+    currentFontSize += 2;
+    document.body.style.fontSize = currentFontSize + "px";
+  }
+}
+
+function decreaseText() {
+  if (currentFontSize > 12) {
+    currentFontSize -= 2;
+    document.body.style.fontSize = currentFontSize + "px";
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const counters = document.querySelectorAll(".counter");
+
+  counters.forEach(counter => {
+    const target = Number(counter.getAttribute("data-target"));
+    let count = 0;
+
+    const speed = 80;
+    const increment = target / speed;
+
+    function updateCounter() {
+      if (count < target) {
+        count += increment;
+        counter.innerText = Math.ceil(count).toLocaleString();
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    }
+
+    updateCounter();
+  });
+});
