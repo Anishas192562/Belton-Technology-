@@ -352,6 +352,7 @@ th {
   }
 }
 
+/* Equipment grid */
 
 .two-stat-grid {
   display: grid;
@@ -433,6 +434,8 @@ th {
   }
 }
 
+/* Carousel of Each page displayin the building images*/
+
 .building-hero-carousel {
   position: relative;
   height: 620px;
@@ -482,6 +485,8 @@ th {
   font-size: 20px;
   color: white;
 }
+
+/* Carousel button */
 
 .carousel-btn {
   position: absolute;
@@ -861,3 +866,328 @@ th {
   margin-bottom: 15px;
   letter-spacing: 0.5px;
 }
+
+.theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #374151;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  z-index: 1000;
+  transition: 0.3s ease;
+}
+
+
+/* =========================
+   Better Mobile View
+========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .header-inner {
+    min-height: auto;
+    padding: 14px 0;
+    gap: 14px;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .company-logo {
+    height: 45px;
+  }
+
+  .top-nav {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .top-nav a {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .building-hero-carousel {
+    height: 420px;
+  }
+
+  .hero-text {
+    left: 6%;
+    right: 6%;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .prev-btn {
+    left: 12px;
+  }
+
+  .next-btn {
+    right: 12px;
+  }
+
+  .section {
+    padding: 34px 0;
+  }
+
+  .section-title h2,
+  .overview-title {
+    font-size: 26px;
+  }
+
+  .card,
+  .building-card div,
+  .equipment-body,
+  .stat {
+    padding: 16px;
+  }
+
+  .equipment-card img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .building-hero-carousel {
+    height: 360px;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .top-nav a {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+
+  .page-hero h1 {
+    font-size: 30px;
+  }
+
+  .section-title h2,
+  .overview-title {
+    font-size: 23px;
+  }
+
+  .equipment-card img {
+    height: 210px;
+  }
+}
+
+/* =========================
+   Mobile Hamburger Menu
+========================= */
+
+.hamburger {
+  display: none;
+  border: none;
+  background: #fee4e2;
+  color: var(--belton-red);
+  font-size: 28px;
+  font-weight: 800;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: grid;
+    place-items: center;
+  }
+
+  .top-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0 6px;
+  }
+
+  .top-nav.show-menu {
+    display: flex;
+  }
+
+  .top-nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #f9fafb;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+
+/* =========================
+   Fix Invisible Equipment Cards
+========================= */
+
+.equipment-grid,
+.equipment-card,
+.equipment-card img,
+.equipment-body {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.equipment-grid.reveal,
+.equipment-card.reveal,
+.equipment-card img.reveal,
+.equipment-body.reveal,
+.equipment-card .reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+
+
+/* Force equipment cards to stay visible */
+.equipment-grid .equipment-card,
+.equipment-grid .equipment-card img,
+.equipment-grid .equipment-body {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: block !important;
+}
+
+/* =========================
+   Final fix for invisible equipment sections
+========================= */
+
+.reveal:has(.equipment-grid),
+.reveal:has(.equipment-card),
+.section:has(.equipment-grid),
+.container:has(.equipment-grid),
+.equipment-grid,
+.equipment-card,
+.equipment-card img,
+.equipment-body {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* =========================
+   Smaller Carousel Buttons on Mobile
+========================= */
+
+@media (max-width: 768px) {
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .carousel-btn::before {
+    width: 8px;
+    height: 8px;
+    border-width: 0 3px 3px 0;
+  }
+
+  .prev-btn {
+    left: 14px;
+  }
+
+  .next-btn {
+    right: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .carousel-btn::before {
+    width: 7px;
+    height: 7px;
+    border-width: 0 3px 3px 0;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-text p {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   Hide Carousel Arrows on Phone View
+========================= */
+
+@media (max-width: 768px) {
+  .building-hero-carousel .carousel-btn {
+    display: none !important;
+  }
+}
+

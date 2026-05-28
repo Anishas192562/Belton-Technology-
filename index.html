@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facility Portal</title>
+  <title>Belton Technology | Facility Portal</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+<header class="site-header">
+  <div class="container header-inner">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-  <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
-</a>
-      <nav class="top-nav">
-  <a class="active" href="index.html">Home</a>
-  <a href="buildingA.html">Building A</a>
-  <a href="buildingB.html">Building B</a>
-  <a href="buildingC.html">Building C</a>
-  <a href="buildingD.html">Building D</a>
-  <a href="buildingE.html">Building E</a>
+    <a class="brand" href="index.html">
+      <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
+    </a>
 
-</nav>
-    </div>
-  </header>
+    <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">
+      ☰
+    </button>
+
+    <nav class="top-nav" id="mobileNav">
+      <a class="active" href="index.html">Home</a>
+      <a href="buildingA.html">Building A</a>
+      <a href="buildingB.html">Building B</a>
+      <a href="buildingC.html">Building C</a>
+      <a href="buildingD.html">Building D</a>
+      <a href="buildingE.html">Building E</a>
+    </nav>
+
+  </div>
+</header>
 
   <main>
     <section class="page-hero">
@@ -133,7 +136,6 @@
     <button onclick="increaseText()">A+</button>
   </div>
 </div>
-
 
 <script src="script.js"></script>
 

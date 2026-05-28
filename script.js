@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Scroll Reveal Animation
 document.addEventListener("DOMContentLoaded", function () {
   const revealElements = document.querySelectorAll(
-    "section, .building-card, .equipment-card, .info-card, .gallery-card, .content-box, .layout-card, .image-card"
+    "section, .building-card, .info-card, .gallery-card, .content-box, .layout-card, .image-card"
   );
 
   if (revealElements.length === 0) return;
@@ -257,3 +257,20 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCounter();
   });
 });
+
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const mobileNav = document.getElementById("mobileNav");
+
+if (hamburgerBtn && mobileNav) {
+  hamburgerBtn.addEventListener("click", function () {
+    mobileNav.classList.toggle("show-menu");
+
+    if (mobileNav.classList.contains("show-menu")) {
+      hamburgerBtn.innerHTML = "×";
+      hamburgerBtn.setAttribute("aria-label", "Close menu");
+    } else {
+      hamburgerBtn.innerHTML = "☰";
+      hamburgerBtn.setAttribute("aria-label", "Open menu");
+    }
+  });
+}
