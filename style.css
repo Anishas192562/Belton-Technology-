@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,11 +15,16 @@
   --dark: #101828;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img {
@@ -33,13 +37,40 @@ a {
   text-decoration: none;
 }
 
+/* =========================
+   Shared Layout Spacing
+========================= */
+
 .container {
-  width: min(1200px, 94%);
+  width: min(1200px, 92%);
   margin: 0 auto;
 }
 
+.section {
+  padding: clamp(36px, 5vw, 56px) 0;
+}
+
+.section-title {
+  margin-bottom: 24px;
+}
+
+.section-title h2 {
+  font-size: clamp(26px, 3vw, 32px);
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: var(--muted);
+  max-width: 850px;
+}
+
+/* =========================
+   Header / Navigation
+========================= */
+
 .site-header {
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
@@ -58,6 +89,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -94,8 +126,10 @@ a {
 .top-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
   justify-content: flex-end;
+  gap: 8px;
+  background: transparent;
 }
 
 .top-nav a {
@@ -104,6 +138,7 @@ a {
   color: #344054;
   font-weight: 700;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .top-nav a:hover,
@@ -112,12 +147,29 @@ a {
   color: var(--belton-red);
 }
 
+.hamburger {
+  display: none;
+  border: none;
+  background: #fee4e2;
+  color: var(--belton-red);
+  font-size: 28px;
+  font-weight: 800;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* =========================
+   Normal Page Hero
+========================= */
+
 .page-hero {
   background:
     linear-gradient(90deg, rgba(16, 24, 40, 0.94), rgba(127, 0, 31, 0.88)),
     linear-gradient(135deg, var(--belton-red), var(--dark));
   color: #fff;
-  padding: 66px 0;
+  padding: clamp(42px, 6vw, 66px) 0;
 }
 
 .page-hero h1 {
@@ -139,56 +191,205 @@ a {
   color: #fda29b;
 }
 
-.section {
-  padding: 48px 0;
+/* =========================
+   Building Hero Carousel
+========================= */
+
+.building-hero-carousel {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  color: white;
 }
 
-.section-title {
-  margin-bottom: 24px;
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
 }
 
-.section-title h2 {
-  font-size: 32px;
-  line-height: 1.18;
-  margin-top: 6px;
+.carousel-track img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.section-title p {
-  color: var(--muted);
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 24, 40, 0.78),
+    rgba(80, 0, 35, 0.45)
+  );
+  z-index: 1;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(1200px, 92%);
+  transform: translate(-50%, -50%);
+  animation: fadeHero 0.8s ease both;
+}
+
+.hero-text h1 {
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 1;
+  margin: 14px 0 20px;
+}
+
+.hero-text p {
   max-width: 850px;
+  font-size: 20px;
+  color: white;
 }
+
+@keyframes fadeHero {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -42%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Carousel buttons */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #7f001f;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  cursor: pointer;
+  appearance: none;
+}
+
+.carousel-btn:hover {
+  background: white;
+}
+
+.carousel-btn::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border: solid #7f001f;
+  border-width: 0 4px 4px 0;
+  display: block;
+}
+
+.prev-btn {
+  left: 28px;
+}
+
+.next-btn {
+  right: 28px;
+}
+
+.prev-btn::before {
+  transform: rotate(135deg);
+  margin-left: 4px;
+}
+
+.next-btn::before {
+  transform: rotate(-45deg);
+  margin-right: 4px;
+}
+
+/* Carousel dots */
+
+.carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: #ffffff;
+  transform: scale(1.25);
+}
+
+.carousel-dot:hover {
+  background-color: #ffffff;
+  transform: scale(1.2);
+}
+
+/* =========================
+   Shared Grids / Cards
+========================= */
 
 .summary-grid,
 .card-grid,
 .building-grid,
 .image-grid,
-.stat-grid {
+.stat-grid,
+.two-stat-grid,
+.equipment-grid {
   display: grid;
-  gap: 20px;
+  gap: 24px;
 }
 
 .summary-grid {
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
   align-items: start;
 }
 
-.card-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
+.card-grid,
 .building-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .stat-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.image-grid,
+.equipment-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.two-stat-grid {
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
 }
 
 .card,
 .building-card,
 .image-card,
 .table-wrap,
-.stat {
+.stat,
+.equipment-card {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -210,12 +411,16 @@ a {
   color: var(--muted);
 }
 
-.building-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.building-card,
+.equipment-card,
+.two-stat-grid .stat {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
-.building-card:hover {
-  transform: translateY(-4px);
+.building-card:hover,
+.equipment-card:hover,
+.two-stat-grid .stat:hover {
+  transform: translateY(-5px);
   box-shadow: 0 16px 32px rgba(16, 24, 40, 0.13);
 }
 
@@ -258,10 +463,6 @@ a {
   font-size: 14px;
 }
 
-.image-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
 .image-card {
   padding: 14px;
 }
@@ -279,6 +480,10 @@ a {
   font-size: 14px;
   font-weight: 800;
 }
+
+/* =========================
+   Tables / Notes
+========================= */
 
 .table-wrap {
   overflow-x: auto;
@@ -310,69 +515,9 @@ th {
   color: #7c2d12;
 }
 
-.site-footer {
-  background: var(--dark);
-  color: #fff;
-  text-align: center;
-  padding: 28px;
-  margin-top: 34px;
-}
-
-@media (max-width: 1000px) {
-  .header-inner,
-  .summary-grid {
-    grid-template-columns: 1fr;
-    display: grid;
-  }
-
-  .top-nav {
-    justify-content: flex-start;
-  }
-
-  .card-grid,
-  .building-grid,
-  .stat-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .image-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .card-grid,
-  .building-grid,
-  .stat-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .page-hero {
-    padding: 42px 0;
-  }
-}
-
-/* Equipment grid */
-
-.two-stat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.equipment-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-}
-
-.equipment-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: 0 8px 22px rgba(16, 24, 40, 0.07);
-  overflow: hidden;
-}
+/* =========================
+   Equipment Cards
+========================= */
 
 .equipment-card img {
   width: 100%;
@@ -413,7 +558,6 @@ th {
 }
 
 .equipment-card dt {
-
   font-weight: 800;
   color: #344054;
   font-size: 13px;
@@ -424,145 +568,9 @@ th {
   margin-top: 3px;
 }
 
-@media (max-width: 900px) {
-  .equipment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .two-stat-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Carousel of Each page displayin the building images*/
-
-.building-hero-carousel {
-  position: relative;
-  height: 620px;
-  overflow: hidden;
-  color: white;
-}
-.carousel-track {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s ease-in-out;
-}
-
-.carousel-track img {
-  min-width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(16, 24, 40, 0.78),
-    rgba(80, 0, 35, 0.45)
-  );
-  z-index: 1;
-}
-
-.hero-text {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-}
-
-.hero-text h1 {
-  font-size: clamp(48px, 7vw, 92px);
-  line-height: 1;
-  margin: 14px 0 20px;
-}
-
-.hero-text p {
-  max-width: 850px;
-  font-size: 20px;
-  color: white;
-}
-
-/* Carousel button */
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-
-  width: 52px;
-  height: 52px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
-  color: #7f001f;
-
-  display: grid;
-  place-items: center;
-
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  line-height: 1;
-  cursor: pointer;
-  appearance: none;
-}
-
-.carousel-btn:hover {
-  background: white;
-}
-
-.carousel-btn::before {
-  content: "";
-  width: 11px;
-  height: 11px;
-  border: solid #7f001f;
-  border-width: 0 4px 4px 0;
-  display: block;
-}
-
-.prev-btn {
-  left: 28px;
-}
-
-.next-btn {
-  right: 28px;
-}
-
-.prev-btn::before {
-  transform: rotate(135deg);
-  margin-left: 4px;
-}
-
-.next-btn::before {
-  transform: rotate(-45deg);
-  margin-right: 4px;
-}
-
-/* Fix header background color */
-.site-header {
-  background: #ffffff;
-  border-bottom: 1px solid var(--line);
-}
-
-.header-inner {
-  background: #ffffff;
-}
-
-.top-nav {
-  background: transparent;
-}
-
-.top-nav a {
-  color: #344054;
-}
-
-
-/* Interactive stat cards */
+/* =========================
+   Interactive Stat Cards
+========================= */
 
 .interactive-stats {
   grid-template-columns: repeat(2, minmax(180px, 1fr));
@@ -598,48 +606,22 @@ th {
   font-size: 16px;
 }
 
-.equipment-card {
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+  padding: 28px;
+  margin-top: 34px;
 }
 
-.equipment-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 32px rgba(16, 24, 40, 0.13);
-}
+/* =========================
+   Back to Top Button
+========================= */
 
-
-
-.hero-text {
-  animation: fadeUp 0.8s ease both;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(-40%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(-50%);
-  }
-}
-
-/* Lift effect for building overview stat cards */
-.two-stat-grid .stat {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.two-stat-grid .stat:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 34px rgba(16, 24, 40, 0.14);
-}
-
-
-
-
-
-/* Back to Top Button */
 .back-to-top {
   position: fixed;
   right: 25px;
@@ -670,19 +652,6 @@ th {
   background-color: #444;
 }
 
-/* Smaller button on mobile */
-@media (max-width: 600px) {
-  .back-to-top {
-    right: 18px;
-    bottom: 18px;
-    width: 42px;
-    height: 42px;
-    font-size: 22px;
-  }
-}
-
-
-
 /* =========================
    Image Zoom Popup
 ========================= */
@@ -691,7 +660,6 @@ th {
   cursor: zoom-in;
 }
 
-/* Popup background */
 .image-popup {
   position: fixed;
   top: 0;
@@ -707,12 +675,10 @@ th {
   padding: 20px;
 }
 
-/* Show popup */
 .image-popup.active {
   display: flex;
 }
 
-/* Large image */
 .image-popup-img {
   max-width: 90%;
   max-height: 80vh;
@@ -721,7 +687,6 @@ th {
   cursor: default;
 }
 
-/* Caption text */
 .image-popup-caption {
   color: white;
   margin-top: 12px;
@@ -730,7 +695,6 @@ th {
   max-width: 90%;
 }
 
-/* Close button */
 .image-popup-close {
   position: absolute;
   top: 25px;
@@ -745,25 +709,6 @@ th {
 .image-popup-close:hover {
   transform: scale(1.15);
 }
-
-/* Mobile adjustment */
-@media (max-width: 600px) {
-  .image-popup-img {
-    max-width: 95%;
-    max-height: 75vh;
-  }
-
-  .image-popup-close {
-    top: 18px;
-    right: 24px;
-    font-size: 36px;
-  }
-
-  .image-popup-caption {
-    font-size: 14px;
-  }
-}
-
 
 /* =========================
    Scroll Reveal Animation
@@ -780,42 +725,28 @@ th {
   transform: translateY(0);
 }
 
+/* Keep equipment visible even if reveal classes are accidentally added to cards */
+.equipment-grid,
+.equipment-card,
+.equipment-card img,
+.equipment-body {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
+.equipment-grid.reveal,
+.equipment-card.reveal,
+.equipment-card img.reveal,
+.equipment-body.reveal,
+.equipment-card .reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
 
 /* =========================
-   Carousel Dots
+   Text Size / Theme Buttons
 ========================= */
-
-.carousel-dots {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 20;
-}
-
-.carousel-dot {
-  width: 6px;
-  height: 6px;
-  border: none;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.65);
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.carousel-dot.active {
-  background-color: #ffffff;
-  transform: scale(1.25);
-}
-
-.carousel-dot:hover {
-  background-color: #ffffff;
-  transform: scale(1.2);
-}
-
 
 .text-size-box {
   position: fixed;
@@ -834,7 +765,7 @@ th {
   margin: 0 0 8px;
   font-size: 13px;
   font-weight: 600;
-  color: #ffffff;
+  color: #4b5563;
 }
 
 .text-size-buttons {
@@ -845,7 +776,7 @@ th {
 .text-size-buttons button {
   border: none;
   background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  color: #000000;
   padding: 6px 9px;
   border-radius: 8px;
   cursor: pointer;
@@ -854,23 +785,14 @@ th {
 }
 
 .text-size-buttons button:hover {
-  background-color: #ffffff;
+  background-color: #f3f4f6;
   transform: translateY(-2px);
-}
-
-
-.overview-title {
-  font-size: 34px;
-  font-weight: 800;
-  color: #4b5563;
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
 }
 
 .theme-toggle {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 25px;
+  bottom: 85px;
   width: 46px;
   height: 46px;
   border: none;
@@ -884,38 +806,21 @@ th {
   transition: 0.3s ease;
 }
 
+.overview-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: #4b5563;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
 
 /* =========================
-   Better Mobile View
+   Responsive Design
 ========================= */
 
-@media (max-width: 768px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
-  .container {
-    width: 92%;
-  }
-
+@media (max-width: 1000px) {
   .header-inner {
-    min-height: auto;
-    padding: 14px 0;
-    gap: 14px;
-  }
-
-  .brand {
-    justify-content: center;
-  }
-
-  .company-logo {
-    height: 45px;
-  }
-
-  .top-nav {
-    justify-content: center;
-    gap: 6px;
+    gap: 16px;
   }
 
   .top-nav a {
@@ -923,115 +828,41 @@ th {
     padding: 8px 10px;
   }
 
-  .building-hero-carousel {
-    height: 420px;
+  .summary-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-text {
-    left: 6%;
-    right: 6%;
+  .card-grid,
+  .building-grid,
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero-text h1 {
-    font-size: 36px;
+  .image-grid,
+  .equipment-grid {
+    grid-template-columns: 1fr;
   }
-
-  .hero-text p {
-    font-size: 15px;
-    max-width: 100%;
-  }
-
-  .carousel-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .prev-btn {
-    left: 12px;
-  }
-
-  .next-btn {
-    right: 12px;
-  }
-
-  .section {
-    padding: 34px 0;
-  }
-
-  .section-title h2,
-  .overview-title {
-    font-size: 26px;
-  }
-
-  .card,
-  .building-card div,
-  .equipment-body,
-  .stat {
-    padding: 16px;
-  }
-
-  .equipment-card img {
-    height: 240px;
-  }
-}
-
-@media (max-width: 480px) {
 
   .building-hero-carousel {
-    height: 360px;
+    height: 520px;
   }
-
-  .hero-text h1 {
-    font-size: 30px;
-  }
-
-  .hero-text p {
-    font-size: 14px;
-  }
-
-  .top-nav a {
-    font-size: 12px;
-    padding: 7px 9px;
-  }
-
-  .page-hero h1 {
-    font-size: 30px;
-  }
-
-  .section-title h2,
-  .overview-title {
-    font-size: 23px;
-  }
-
-  .equipment-card img {
-    height: 210px;
-  }
-}
-
-/* =========================
-   Mobile Hamburger Menu
-========================= */
-
-.hamburger {
-  display: none;
-  border: none;
-  background: #fee4e2;
-  color: var(--belton-red);
-  font-size: 28px;
-  font-weight: 800;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: min(100% - 32px, 1200px);
+  }
 
   .header-inner {
-    display: flex;
+    min-height: auto;
+    padding: 14px 0;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .company-logo {
+    height: 45px;
   }
 
   .hamburger {
@@ -1061,117 +892,89 @@ th {
     padding: 12px;
     font-size: 14px;
   }
-}
 
-
-/* =========================
-   Fix Invisible Equipment Cards
-========================= */
-
-.equipment-grid,
-.equipment-card,
-.equipment-card img,
-.equipment-body {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.equipment-grid.reveal,
-.equipment-card.reveal,
-.equipment-card img.reveal,
-.equipment-body.reveal,
-.equipment-card .reveal {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-
-
-
-/* Force equipment cards to stay visible */
-.equipment-grid .equipment-card,
-.equipment-grid .equipment-card img,
-.equipment-grid .equipment-body {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  display: block !important;
-}
-
-/* =========================
-   Final fix for invisible equipment sections
-========================= */
-
-.reveal:has(.equipment-grid),
-.reveal:has(.equipment-card),
-.section:has(.equipment-grid),
-.container:has(.equipment-grid),
-.equipment-grid,
-.equipment-card,
-.equipment-card img,
-.equipment-body {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-
-/* =========================
-   Smaller Carousel Buttons on Mobile
-========================= */
-
-@media (max-width: 768px) {
-  .carousel-btn {
-    width: 38px;
-    height: 38px;
+  .section {
+    padding: 38px 0;
   }
 
-  .carousel-btn::before {
-    width: 8px;
-    height: 8px;
-    border-width: 0 3px 3px 0;
+  .building-hero-carousel {
+    height: 420px;
   }
 
-  .prev-btn {
-    left: 14px;
+  .hero-text {
+    width: min(100% - 48px, 1200px);
   }
 
-  .next-btn {
-    right: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-btn {
-    width: 34px;
-    height: 34px;
-  }
-
-  .carousel-btn::before {
-    width: 7px;
-    height: 7px;
-    border-width: 0 3px 3px 0;
-  }
-
-  .prev-btn {
-    left: 10px;
-  }
-
-  .next-btn {
-    right: 10px;
-  }
-}
-
-@media (max-width: 768px) {
   .hero-text h1 {
     font-size: 36px;
   }
 
   .hero-text p {
     font-size: 17px;
+    max-width: 100%;
+  }
+
+  .building-hero-carousel .carousel-btn {
+    display: none !important;
+  }
+
+  .card-grid,
+  .building-grid,
+  .stat-grid,
+  .two-stat-grid,
+  .interactive-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .building-card div,
+  .equipment-body,
+  .stat {
+    padding: 16px;
+  }
+
+  .equipment-card img {
+    height: 240px;
+  }
+
+  .back-to-top {
+    right: 18px;
+    bottom: 18px;
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .theme-toggle {
+    right: 18px;
+    bottom: 72px;
+  }
+
+  .image-popup-img {
+    max-width: 95%;
+    max-height: 75vh;
+  }
+
+  .image-popup-close {
+    top: 18px;
+    right: 24px;
+    font-size: 36px;
+  }
+
+  .image-popup-caption {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    width: min(100% - 24px, 1200px);
+  }
+
+  .building-hero-carousel {
+    height: 360px;
+  }
+
   .hero-text h1 {
     font-size: 30px;
   }
@@ -1179,15 +982,17 @@ th {
   .hero-text p {
     font-size: 15px;
   }
-}
 
-/* =========================
-   Hide Carousel Arrows on Phone View
-========================= */
+  .page-hero h1 {
+    font-size: 30px;
+  }
 
-@media (max-width: 768px) {
-  .building-hero-carousel .carousel-btn {
-    display: none !important;
+  .section-title h2,
+  .overview-title {
+    font-size: 23px;
+  }
+
+  .equipment-card img {
+    height: 210px;
   }
 }
-
