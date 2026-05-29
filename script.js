@@ -274,3 +274,31 @@ if (hamburgerBtn && mobileNav) {
     }
   });
 }
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const bars = document.querySelectorAll(".bar-fill");
+
+  bars.forEach(function (bar) {
+    const value = bar.getAttribute("data-value");
+
+    setTimeout(function () {
+      bar.style.width = value + "%";
+    }, 300);
+  });
+});
+
+// IOT Bar Graph Animation
+document.addEventListener("DOMContentLoaded", function () {
+  const bars = document.querySelectorAll(".bar-fill");
+
+  bars.forEach(function (bar) {
+    const value = bar.getAttribute("data-value");
+
+    setTimeout(function () {
+      bar.style.width = value + "%";
+    }, 300);
+  });
+});
