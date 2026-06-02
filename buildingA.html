@@ -176,12 +176,71 @@
     <p>Belton Technology | Facility Portal</p>
   </footer>
 
-  <div class="font-control">
-  <button onclick="decreaseFont()">A-</button>
-  <button onclick="increaseFont()">A+</button>
+<script src="script.js"></script>
+
+
+<div class="text-zoom-box">
+  <button onclick="changeTextSize(-1)" type="button">A-</button>
+  <button onclick="changeTextSize(1)" type="button">A+</button>
 </div>
 
-<script src="script.js"></script>
+<style>
+  .text-zoom-box {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 12px;
+    background: white;
+    padding: 14px 18px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+  }
+
+  .text-zoom-box button {
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: black;
+  }
+</style>
+
+<script>
+  let zoomAmount = Number(localStorage.getItem("zoomAmount")) || 0;
+
+  function changeTextSize(direction) {
+    zoomAmount += direction;
+
+    if (zoomAmount > 4) zoomAmount = 4;
+    if (zoomAmount < -3) zoomAmount = -3;
+
+    localStorage.setItem("zoomAmount", zoomAmount);
+    applyTextSize();
+  }
+
+  function applyTextSize() {
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, h4, h5, h6, p, a, li, span"
+    );
+
+    elements.forEach(function (el) {
+      if (el.closest(".text-zoom-box")) return;
+
+      if (!el.dataset.originalSize) {
+        el.dataset.originalSize = window.getComputedStyle(el).fontSize;
+      }
+
+      const originalSize = parseFloat(el.dataset.originalSize);
+      el.style.fontSize = originalSize + zoomAmount * 2 + "px";
+    });
+  }
+
+  applyTextSize();
+</script>
+
 
 </body>
 </html>

@@ -302,3 +302,54 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   });
 });
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const zoomInBtn = document.getElementById("zoomIn");
+  const zoomOutBtn = document.getElementById("zoomOut");
+
+  if (!zoomInBtn || !zoomOutBtn) return;
+
+  let zoomLevel = Number(localStorage.getItem("textZoomLevel")) || 1;
+
+  const textElements = document.querySelectorAll(
+    "h1, h2, h3, h4, h5, h6, p, a, li, span, button, label"
+  );
+
+  textElements.forEach(function (element) {
+    if (element.closest(".text-zoom-box")) return;
+
+    const originalSize = window.getComputedStyle(element).fontSize;
+    element.dataset.originalFontSize = parseFloat(originalSize);
+  });
+
+  function applyZoom() {
+    textElements.forEach(function (element) {
+      if (element.closest(".text-zoom-box")) return;
+
+      const originalSize = Number(element.dataset.originalFontSize);
+      element.style.fontSize = originalSize * zoomLevel + "px";
+    });
+
+    localStorage.setItem("textZoomLevel", zoomLevel);
+  }
+
+  zoomInBtn.addEventListener("click", function () {
+    if (zoomLevel < 1.4) {
+      zoomLevel += 0.1;
+      applyZoom();
+    }
+  });
+
+  zoomOutBtn.addEventListener("click", function () {
+    if (zoomLevel > 0.8) {
+      zoomLevel -= 0.1;
+      applyZoom();
+    }
+  });
+
+  applyZoom();
+});
