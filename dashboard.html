@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belton Technology | Facility Data Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
+      </a>
+
+      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav class="top-nav" id="mobileNav">
+        <a href="IOT.html">IOT</a>
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="index.html">Home</a>
+        <a href="buildingA.html">Building A</a>
+        <a href="buildingB.html">Building B</a>
+        <a href="buildingC.html">Building C</a>
+        <a href="buildingD.html">Building D</a>
+        <a href="buildingE.html">Building E</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero dashboard-hero">
+      <div class="container">
+        <p class="eyebrow">Facility Operations</p>
+        <h1>Facility Data Dashboard</h1>
+        <p>Interactive trend analysis for chiller, CDA, water and RO system data with filters, summary cards and A4 PDF graph export.</p>
+      </div>
+    </section>
+
+    <section class="dashboard" aria-label="Facility data dashboard">
+      <div class="dashboard-status-card">
+        <div>
+          <span class="dashboard-kicker">Data range</span>
+          <strong id="dateRangeBadge">Loading data...</strong>
+          <p id="loadNote">Select a dataset and metric to begin analysis.</p>
+        </div>
+      </div>
+
+      <section class="controls-card" aria-label="Dashboard controls">
+        <div class="control-group">
+          <label for="datasetSelect">Dataset</label>
+          <select id="datasetSelect"></select>
+        </div>
+
+        <div class="control-group wide">
+          <label for="metricSelect">Metric</label>
+          <select id="metricSelect"></select>
+        </div>
+
+        <div class="control-group">
+          <label for="groupBySelect">Group by</label>
+          <select id="groupBySelect">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month" selected>Month</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="aggregateSelect">Calculation</label>
+          <select id="aggregateSelect">
+            <option value="avg" selected>Average</option>
+            <option value="sum">Sum</option>
+            <option value="min">Minimum</option>
+            <option value="max">Maximum</option>
+            <option value="count">Count</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="chartTypeSelect">Chart</label>
+          <select id="chartTypeSelect">
+            <option value="line" selected>Line</option>
+            <option value="bar">Bar</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="fromDate">From</label>
+          <input type="date" id="fromDate" />
+        </div>
+
+        <div class="control-group">
+          <label for="toDate">To</label>
+          <input type="date" id="toDate" />
+        </div>
+
+        <label class="checkbox-control">
+          <input type="checkbox" id="ignoreZero" checked />
+          <span>Ignore 0 values</span>
+        </label>
+
+        <div class="button-row">
+          <button id="resetBtn" type="button">Reset</button>
+          <button id="downloadPdfBtn" type="button" class="secondary-btn">Download Graph as PDF</button>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Dashboard statistics">
+        <article class="stat-card">
+          <p>Records used</p>
+          <h2 id="recordsStat">0</h2>
+        </article>
+
+        <article class="stat-card">
+          <p>Average</p>
+          <h2 id="avgStat">0</h2>
+        </article>
+
+        <article class="stat-card">
+          <p>Minimum</p>
+          <h2 id="minStat">0</h2>
+        </article>
+
+        <article class="stat-card">
+          <p>Maximum</p>
+          <h2 id="maxStat">0</h2>
+        </article>
+      </section>
+
+      <section class="chart-card" aria-label="Trend chart">
+        <div class="section-heading">
+          <div>
+            <h2 id="chartTitle">Trend</h2>
+            <p id="chartNote">Select a dataset and metric to view the graph.</p>
+          </div>
+        </div>
+
+        <div class="chart-wrap">
+          <canvas id="myChart"></canvas>
+        </div>
+      </section>
+
+      <section class="table-card" aria-label="Data preview">
+        <div class="section-heading">
+          <div>
+            <h2>Data Preview</h2>
+            <p>Showing the first 100 filtered rows for quick checking.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="previewTable"></table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Belton Technology | Facility Portal</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="dashboard.js"></script>
+
+<div class="text-zoom-box">
+  <button onclick="changeTextSize(-1)" type="button">A-</button>
+  <button onclick="changeTextSize(1)" type="button">A+</button>
+</div>
+
+<style>
+  .text-zoom-box {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 12px;
+    background: white;
+    padding: 14px 18px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+  }
+
+  .text-zoom-box button {
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: black;
+  }
+</style>
+
+<script>
+  let zoomAmount = Number(localStorage.getItem("zoomAmount")) || 0;
+
+  function changeTextSize(direction) {
+    zoomAmount += direction;
+
+    if (zoomAmount > 4) zoomAmount = 4;
+    if (zoomAmount < -3) zoomAmount = -3;
+
+    localStorage.setItem("zoomAmount", zoomAmount);
+    applyTextSize();
+  }
+
+  function applyTextSize() {
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, h4, h5, h6, p, a, li, span, label, button"
+    );
+
+    elements.forEach(function (el) {
+      if (el.closest(".text-zoom-box")) return;
+
+      if (!el.dataset.originalSize) {
+        el.dataset.originalSize = window.getComputedStyle(el).fontSize;
+      }
+
+      const originalSize = parseFloat(el.dataset.originalSize);
+      el.style.fontSize = originalSize + zoomAmount * 2 + "px";
+    });
+  }
+
+  applyTextSize();
+</script>
+
+</body>
+</html>
