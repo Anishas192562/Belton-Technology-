@@ -296,3 +296,9 @@
     width: 100%;
   }
 }
+
+
+.hero-card,
+.stats-grid {
+  display: none !important;
+}
