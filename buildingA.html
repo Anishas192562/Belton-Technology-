@@ -18,16 +18,28 @@
       ☰
     </button>
 
-    <nav class="top-nav" id="mobileNav"> 
-  <a href="IOT.html">IOT</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="index.html">Home</a>
-  <a class="active" href="buildingA.html">Building A</a>
-  <a href="buildingB.html">Building B</a>
-  <a href="buildingC.html">Building C</a>
-  <a href="buildingD.html">Building D</a>
-  <a href="buildingE.html">Building E</a>
+   <nav class="navbar">
 
+  <ul class="nav-links">
+    <li><a href="IOT.html">IOT</a></li>
+    <li><a href="Dashboard.html">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#" class="active">R1 ▾</a>
+
+      <ul class="dropdown-menu">
+        <li><a href="buildingA.html">Building A</a></li>
+        <li><a href="buildingB.html">Building B</a></li>
+        <li><a href="buildingC.html">Building C</a></li>
+        <li><a href="buildingD.html">Building D</a></li>
+        <li><a href="buildingE.html">Building E</a></li>
+      </ul>
+    </li>
+
+    <li><a href="r2.html">R2</a></li>
+    <li><a href="r3.html">R3</a></li>
+  </ul>
 </nav>
     </div>
   </header>
@@ -59,7 +71,6 @@
         <div>
           <div class="section-title">
             <h2>Building Overview</h2>
-            <p>Equipment register for Building A covering production support, electrical distribution, CDA, HVAC and ventilation equipment.</p>
           </div>
           <div class="two-stat-grid">
             <div class="stat"><strong>4,281</strong><span>sq.m area</span></div>
@@ -128,13 +139,19 @@
           <article class="equipment-card">
             <img src="assets/drawings/cda-a.png" alt="CDA System">
             <div class="equipment-body">
-              <span class="equipment-tag">Compressed Air</span>
-              <h3>CDA System</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building A Utility Area</p>
+              <span class="equipment-tag">CDA</span>
+              <h3>Air Compressor</h3>
+              <p class="equipment-location">
               <dl>
-                <div><dt>Brand</dt><dd>---</dd></div>
-                <div><dt>Main Parameters</dt><dd>---</dd></div>
-                <div><dt>Function</dt><dd>Compressed dry air supply for production and pneumatic equipment.</dd></div>
+                <div><dt>Brand</dt><dd>KOBELCO</dd></div>
+                <div><dt>Model</dt><dd>VS1500A-75, AG1490A-75</dd></div>
+                <div><dt>Volt</dt><dd>380-400</dd></div>
+                <div><dt>Capacity</dt><dd>526 cfm.</dd></div>
+                <div><dt>Power</dt><dd>75Kw.</dd></div>
+                <div><dt>Function</dt><dd>The primary function of an air compressor is to convert power 
+                  (from an electric motor or engine) into 
+                  potential energy stored in pressurized air. It draws in atmospheric air, reduces its volume to 
+                  increase its pressure, and stores it for various practical applications.</dd></div>
               </dl>
             </div>
           </article>
@@ -143,18 +160,20 @@
             <img src="assets/drawings/hvac-ab.png" alt="Package Air Conditioner">
             <div class="equipment-body">
               <span class="equipment-tag">HVAC</span>
-              <h3>Package Air Conditioner</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building A production and support areas</p>
+              <h3>Air Dryer</h3>
+              <p class="equipment-location">
               <dl>
-                <div><dt>Brand</dt><dd>---</dd></div>
-                <div><dt>Main Parameters</dt><dd>---</dd></div>
-                <div><dt>Function</dt><dd>Temperature control for production and support rooms.</dd></div>
+                <div><dt>Brand</dt><dd>CDK Xeroaqa</dd></div>
+                <div><dt>Model</dt><dd>GT9150-AC200V</dd></div>
+                <div><dt>Power</dt><dd>3P 200/200, 220V 50/60Hz</dd></div>
+                <div><dt>Air Flow</dt><dd>840.48 cfm</dd></div>
+                <div><dt>Function</dt><dd>The function of an air dryer is to remove water vapor and moisture from compressed air</dd></div>
               </dl>
             </div>
           </article>
         
           <article class="equipment-card">
-            <img src="assets/drawings/oil-mist-a.png" alt="Oil Mist Collector">
+            <img src="assets/drawings/Oilmist_A1.png" alt="Oil Mist Collector">
             <div class="equipment-body">
               <span class="equipment-tag">Ventilation</span>
               <h3>Oil Mist Collector</h3>

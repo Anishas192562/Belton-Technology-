@@ -17,15 +17,28 @@
       ☰
     </button>
 
-    <nav class="top-nav" id="mobileNav">
-  <a href="IOT.html">IOT</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="index.html">Home</a>
-  <a href="buildingA.html">Building A</a>
-  <a href="buildingB.html">Building B</a>
-  <a class="active" href="buildingC.html">Building C</a>
-  <a href="buildingD.html">Building D</a>
-  <a href="buildingE.html">Building E</a>
+    <nav class="navbar">
+
+  <ul class="nav-links">
+    <li><a href="IOT.html">IOT</a></li>
+    <li><a href="Dashboard.html">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#" class="active">R1 ▾</a>
+
+      <ul class="dropdown-menu">
+        <li><a href="buildingA.html">Building A</a></li>
+        <li><a href="buildingB.html">Building B</a></li>
+        <li><a href="buildingC.html">Building C</a></li>
+        <li><a href="buildingD.html">Building D</a></li>
+        <li><a href="buildingE.html">Building E</a></li>
+      </ul>
+    </li>
+
+    <li><a href="r2.html">R2</a></li>
+    <li><a href="r3.html">R3</a></li>
+  </ul>
 </nav>
     </div>
   </header>
@@ -56,8 +69,6 @@
         <div>
           <div class="section-title">
             <h2>Building Overview</h2>
-            <p>Equipment register for Building C covering MDBs, chiller plant, pumps, CDA, water treatment, wet scrubber, oil mist collector and HVAC equipment.</p>
-          </div>
           <div class="two-stat-grid">
             <div class="stat"><strong>8,013</strong><span>sq.m area</span></div>
             <div class="stat"><strong>5-3-46 Rai</strong><span>land area reference</span></div>
@@ -85,7 +96,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Main Distribution Board MDB1</h3>
-              <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C1, 2 MVA; DB-CNC-01 to DB-CNC-13.</dd></div>
@@ -99,7 +110,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Main Distribution Board MDB2</h3>
-              <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C2, 3 MVA; wet scrubber, DI water plant, oil mist, wastewater treatment plant, chiller no.01 to no.04, support panels and air compressors.</dd></div>
@@ -113,7 +124,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Main Distribution Board MDB3</h3>
-              <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C3, 3 MVA; chemical clean, degreasing, final clean, MPM deburring/drilling and ECP loads.</dd></div>
@@ -127,7 +138,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Main Distribution Board MDB4</h3>
-              <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building C</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-C4, 2 MVA; DB-CNC-01 to DB-CNC-09 and air compressor S-220.</dd></div>
@@ -141,7 +152,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">HVAC / Chilled Water</span>
               <h3>Chiller</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C Chiller Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>160 RT x 4 units.</dd></div>
@@ -155,7 +166,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">HVAC / Cooling Water</span>
               <h3>Cooling Tower</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C Cooling Tower Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>200 RT x 4 units.</dd></div>
@@ -169,7 +180,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Pump</span>
               <h3>Cooling Water Pump</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C Pump Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>5 units.</dd></div>
@@ -183,7 +194,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Pump</span>
               <h3>Chilled Water Pump</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C Pump Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>5 units.</dd></div>
@@ -197,7 +208,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Compressed Air</span>
               <h3>Air Compressor</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C CDA Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>
@@ -205,13 +216,29 @@
               </dl>
             </div>
           </article>
+
+
+           <article class="equipment-card">
+            <img src="assets/drawings/cda-c.png" alt="Air Compressor">
+            <div class="equipment-body">
+              <span class="equipment-tag">Compressed Air</span>
+              <h3>Air Dryer</h3>
+              <p class="equipment-location">
+              <dl>
+                <div><dt>Brand</dt><dd>---</dd></div>
+                <div><dt>Main Parameters</dt><dd>---</dd></div>
+                <div><dt>Function</dt><dd>Provides compressed air for CDA system.</dd></div>
+              </dl>
+            </div>
+          </article>
+
         
           <article class="equipment-card">
             <img src="assets/drawings/wet-scrubber-c.png" alt="Wet Scrubber">
             <div class="equipment-body">
               <span class="equipment-tag">Air Treatment</span>
               <h3>Wet Scrubber</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C Process Exhaust Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>
@@ -225,7 +252,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Ventilation</span>
               <h3>Oil Mist Collector</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building C production area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>
@@ -239,7 +266,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Water Treatment</span>
               <h3>RO/DI Water System</h3>
-              <p class="equipment-location"><strong>Location:</strong> Plant C / D&E support area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>

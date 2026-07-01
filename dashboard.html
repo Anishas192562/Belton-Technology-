@@ -23,31 +23,49 @@
         ☰
       </button>
 
-      <nav class="top-nav" id="mobileNav">
-        <a href="IOT.html">IOT</a>
-        <a class="active" href="dashboard.html">Dashboard</a>
-        <a href="index.html">Home</a>
-        <a href="buildingA.html">Building A</a>
-        <a href="buildingB.html">Building B</a>
-        <a href="buildingC.html">Building C</a>
-        <a href="buildingD.html">Building D</a>
-        <a href="buildingE.html">Building E</a>
-      </nav>
+      <nav class="navbar">
+
+  <ul class="nav-links">
+    <li><a href="IOT.html">IOT</a></li>
+    <li><a href="Dashboard.html" class="active">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#">R1 ▾</a>
+
+      <ul class="dropdown-menu">
+        <li><a href="buildingA.html">Building A</a></li>
+        <li><a href="buildingB.html">Building B</a></li>
+        <li><a href="buildingC.html">Building C</a></li>
+        <li><a href="buildingD.html">Building D</a></li>
+        <li><a href="buildingE.html">Building E</a></li>
+      </ul>
+    </li>
+
+    <li><a href="r2.html">R2</a></li>
+    <li><a href="r3.html">R3</a></li>
+  </ul>
+</nav>
     </div>
   </header>
 
   <main>
     <section class="page-hero dashboard-hero">
       <div class="container">
+        <p class="eyebrow">Facility Operations</p>
         <h1>Facility Data Dashboard</h1>
+        <p>Interactive trend analysis for chiller, CDA, water and RO system data with filters, summary cards and A4 PDF graph export.</p>
       </div>
     </section>
 
     <section class="dashboard" aria-label="Facility data dashboard">
-      <div style="display: none;">
-  <strong id="dateRangeBadge">Loading data...</strong>
-  <p id="loadNote">Select a dataset and metric to begin analysis.</p>
-</div>
+      <div class="dashboard-status-card">
+        <div>
+          <span class="dashboard-kicker">Data range</span>
+          <strong id="dateRangeBadge">Loading data...</strong>
+          <p id="loadNote">Select a dataset and metric to begin analysis.</p>
+        </div>
+      </div>
 
       <section class="controls-card" aria-label="Dashboard controls">
         <div class="control-group">

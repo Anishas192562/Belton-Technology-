@@ -17,16 +17,28 @@
       ☰
     </button>
 
-    <nav class="top-nav" id="mobileNav">
-  <a href="IOT.html">IOT</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="index.html">Home</a>
-  <a href="buildingA.html">Building A</a>
-  <a href="buildingB.html">Building B</a>
-  <a href="buildingC.html">Building C</a>
-  <a class="active" href="buildingD.html">Building D</a>
-  <a href="buildingE.html">Building E</a>
+    <nav class="navbar">
 
+  <ul class="nav-links">
+    <li><a href="IOT.html">IOT</a></li>
+    <li><a href="Dashboard.html">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#" class="active">R1 ▾</a>
+
+      <ul class="dropdown-menu">
+        <li><a href="buildingA.html">Building A</a></li>
+        <li><a href="buildingB.html">Building B</a></li>
+        <li><a href="buildingC.html">Building C</a></li>
+        <li><a href="buildingD.html">Building D</a></li>
+        <li><a href="buildingE.html">Building E</a></li>
+      </ul>
+    </li>
+
+    <li><a href="r2.html">R2</a></li>
+    <li><a href="r3.html">R3</a></li>
+  </ul>
 </nav>
     </div>
   </header>
@@ -56,8 +68,6 @@
         <div>
           <div class="section-title">
             <h2>Building Overview</h2>
-            <p>Equipment register for Building D covering MDBs, chiller plant, air compressors, CDA, ventilation, water systems, generator and UPS backup.</p>
-          </div>
           <div class="two-stat-grid">
             <div class="stat"><strong>4,884</strong><span>sq.m area</span></div>
             <div class="stat"><strong>3-2-27 Rai</strong><span>land area reference</span></div>
@@ -253,10 +263,14 @@
             <div class="equipment-body">
               <span class="equipment-tag">Backup Power</span>
               <h3>Generator</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building D</p>
+              <p class="equipment-location">
               <dl>
-                <div><dt>Brand</dt><dd>---</dd></div>
-                <div><dt>Main Parameters</dt><dd>---</dd></div>
+                <div><dt>Brand</dt><dd>DCEC</dd></div>
+                <div><dt>Model</dt><dd>4B3.9-G2</dd></div>
+                <div><dt>Battery</dt><dd>Cold Soak</dd></div>
+                <div><dt>Total Drain Flow</dt><dd>30 L/Hr</dd></div>
+                <div><dt>Coolant Capacity</dt><dd>7.2 Liters</dd></div>
+                <div><dt>Engine Speed</dt><dd>1500-21800</dd></div>
                 <div><dt>Function</dt><dd>Provides backup power during utility power interruption.</dd></div>
               </dl>
             </div>
@@ -267,7 +281,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Backup Power</span>
               <h3>UPS System</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building D</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>

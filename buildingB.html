@@ -17,15 +17,28 @@
       ☰
     </button>
 
-    <nav class="top-nav" id="mobileNav">
-  <a href="IOT.html">IOT</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="index.html">Home</a>
-  <a href="buildingA.html">Building A</a>
-  <a class="active" href="buildingB.html">Building B</a>
-  <a href="buildingC.html">Building C</a>
-  <a href="buildingD.html">Building D</a>
-  <a href="buildingE.html">Building E</a>
+   <nav class="navbar">
+
+  <ul class="nav-links">
+    <li><a href="IOT.html">IOT</a></li>
+    <li><a href="Dashboard.html">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#" class="active">R1 ▾</a>
+
+      <ul class="dropdown-menu">
+        <li><a href="buildingA.html">Building A</a></li>
+        <li><a href="buildingB.html">Building B</a></li>
+        <li><a href="buildingC.html">Building C</a></li>
+        <li><a href="buildingD.html">Building D</a></li>
+        <li><a href="buildingE.html">Building E</a></li>
+      </ul>
+    </li>
+
+    <li><a href="r2.html">R2</a></li>
+    <li><a href="r3.html">R3</a></li>
+  </ul>
 </nav>
     </div>
   </header>
@@ -55,7 +68,6 @@
         <div>
           <div class="section-title">
             <h2>Building Overview</h2>
-            <p>Equipment register for Building B covering air compressor, air dryer, electrical distribution, CDA, HVAC and ventilation equipment.</p>
           </div>
           <div class="two-stat-grid">
             <div class="stat"><strong>2,956</strong><span>sq.m area</span></div>
@@ -84,7 +96,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Main Distribution Board MDB1</h3>
-              <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building B</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-B1, 1.5 MVA; air compressor, air dryer, PL-02, LP-01 to LP-03, PAC-03 and PAC-17 to PAC-26.</dd></div>
@@ -98,7 +110,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Main Distribution Board MDB2</h3>
-              <p class="equipment-location"><strong>Location:</strong> Electrical Room / Building B</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>Supplied from TR-B2, 0.63 MVA; DB-1 and DB-2.</dd></div>
@@ -112,10 +124,11 @@
             <div class="equipment-body">
               <span class="equipment-tag">Compressed Air</span>
               <h3>Air Compressor</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building B Utility / CDA Area</p>
+              <p class="equipment-location">
               <dl>
-                <div><dt>Brand</dt><dd>---</dd></div>
-                <div><dt>Main Parameters</dt><dd>---</dd></div>
+                <div><dt>Brand</dt><dd>--</dd></div>
+                <div><dt>Model</dt><dd>BOGE S100, BOGE S150</dd></div>
+                <div><dt>Capacity</dt><dd>840 cfm</dd></div>
                 <div><dt>Function</dt><dd>Produces compressed air for CDA system and pneumatic equipment.</dd></div>
               </dl>
             </div>
@@ -126,7 +139,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Compressed Air</span>
               <h3>Air Dryer</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building B Utility / CDA Area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>
@@ -140,7 +153,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">HVAC</span>
               <h3>Package Air Conditioner</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building B production and support areas</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>
@@ -154,7 +167,7 @@
             <div class="equipment-body">
               <span class="equipment-tag">Ventilation</span>
               <h3>Oil Mist Collector</h3>
-              <p class="equipment-location"><strong>Location:</strong> Building B production area</p>
+              <p class="equipment-location">
               <dl>
                 <div><dt>Brand</dt><dd>---</dd></div>
                 <div><dt>Main Parameters</dt><dd>---</dd></div>

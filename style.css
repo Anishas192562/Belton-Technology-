@@ -1144,3 +1144,149 @@ th {
   font-weight: 600;
   cursor: pointer;
 }
+
+
+
+.navbar {
+  height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 55px;
+  background: white;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 78px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links > li > a {
+  text-decoration: none;
+  color: #2f3b4f;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.nav-links > li > a:hover,
+.nav-links > li > a.active {
+  background: #fde2df;
+  color: #c5002e;
+}
+
+.arrow {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;          /* directly below R1 */
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 14px 0;
+  margin: 0;          /* very important: no gap */
+  min-width: 230px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  z-index: 9999;
+}
+
+/* Keep dropdown open when hovering R1 OR the menu */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  text-decoration: none;
+  color: #2f3b4f;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 28px;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background: #fde2df;
+  color: #c5002e;
+}
+
+.site-header {
+  background: white;
+  height: auto;
+}
+
+.navbar {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 45px;
+  background: white;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links > li > a {
+  text-decoration: none;
+  color: #2f3b4f;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+
+
+
+

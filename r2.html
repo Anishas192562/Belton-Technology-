@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belton Technology | R2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
+      </a>
+
+      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">
+        ☰
+      </button>
+
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="IOT.html">IOT</a></li>
+          <li><a href="Dashboard.html">Dashboard</a></li>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown">
+            <a href="#">R1 ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="buildingA.html">Building A</a></li>
+              <li><a href="buildingB.html">Building B</a></li>
+              <li><a href="buildingC.html">Building C</a></li>
+              <li><a href="buildingD.html">Building D</a></li>
+              <li><a href="buildingE.html">Building E</a></li>
+            </ul>
+          </li>
+
+          <li><a href="r2.html" class="active">R2</a></li>
+          <li><a href="r3.html">R3</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="building-hero-carousel">
+      <div class="carousel-track">
+        <img src="assets/drawings/building-r2-layout.png" alt="BIT-R2 Layout">
+        <img src="assets/drawings/r2-utility-layout.png" alt="BIT-R2 Utility Layout">
+        <img src="assets/drawings/r2-safety-layout.png" alt="BIT-R2 Safety Layout">
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-text">
+        <h1>R2</h1>
+      </div>
+
+      <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous slide"></button>
+      <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next slide"></button>
+    </section>
+
+    <section class="section">
+      <div class="container summary-grid">
+        <div>
+          <div class="section-title">
+            <h2>Building Overview</h2>
+            <p>Facility information for BIT-R2 covering plant layout, electrical supply, lighting, HVAC, CDA, exhaust and oil mist, fresh air, water systems, wastewater treatment, fire safety, generator, UPS and lightning protection.</p>
+          </div>
+
+          <div class="two-stat-grid">
+            <div class="stat"><strong>4 x 4000 kVA</strong><span>transformers</span></div>
+            <div class="stat"><strong>4 x 6300A</strong><span>main distribution boards</span></div>
+          </div>
+        </div>
+
+        <div>
+          <figure class="image-card">
+            <img src="assets/drawings/building-r2-floorplan.png" alt="R2 Floor Layout" />
+            <figcaption>R2 Floor Layout</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Equipments</h2>
+        </div>
+
+        <div class="equipment-grid">
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-transformer.png" alt="R2 Transformer System">
+            <div class="equipment-body">
+              <span class="equipment-tag">Electrical</span>
+              <h3>Transformer System</h3>
+              <dl>
+                <div><dt>Transformer No. 1-3</dt><dd>3 x 4000 kVA, 22 kV / 400V.</dd></div>
+                <div><dt>Transformer No. 4</dt><dd>1 x 4000 kVA, 22 kV / 400V.</dd></div>
+                <div><dt>Total</dt><dd>4 transformers supporting BIT-R2 main electrical supply.</dd></div>
+                <div><dt>Function</dt><dd>Steps down incoming 22 kV supply for building utility and production loads.</dd></div>
+              </dl>
+            </div>
+          </article>
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Belton Technology | Facility Portal</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <div class="text-zoom-box">
+    <button onclick="changeTextSize(-1)" type="button">A-</button>
+    <button onclick="changeTextSize(1)" type="button">A+</button>
+  </div>
+
+  <style>
+    .text-zoom-box {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      display: flex;
+      gap: 12px;
+      background: white;
+      padding: 14px 18px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      z-index: 99999;
+    }
+
+    .text-zoom-box button {
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: black;
+    }
+
+    .equipment-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 28px !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .equipment-card,
+    .equipment-card:nth-child(n) {
+      display: block !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+
+    .equipment-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      .equipment-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <script>
+    let zoomAmount = Number(localStorage.getItem("zoomAmount")) || 0;
+
+    function changeTextSize(direction) {
+      zoomAmount += direction;
+
+      if (zoomAmount > 4) zoomAmount = 4;
+      if (zoomAmount < -3) zoomAmount = -3;
+
+      localStorage.setItem("zoomAmount", zoomAmount);
+      applyTextSize();
+    }
+
+    function applyTextSize() {
+      const elements = document.querySelectorAll(
+        "h1, h2, h3, h4, h5, h6, p, a, li, span, dt, dd"
+      );
+
+      elements.forEach(function (el) {
+        if (el.closest(".text-zoom-box")) return;
+
+        if (!el.dataset.originalSize) {
+          el.dataset.originalSize = window.getComputedStyle(el).fontSize;
+        }
+
+        const originalSize = parseFloat(el.dataset.originalSize);
+        el.style.fontSize = originalSize + zoomAmount * 2 + "px";
+      });
+    }
+
+    applyTextSize();
+  </script>
+
+</body>
+</html>
