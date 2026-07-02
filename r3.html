@@ -1,124 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Belton Technology | R3</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- R3 safety override:
-       This avoids using repeated inner <div> rows inside equipment cards.
-       Use <li> rows instead, so adding 5, 6, 7+ details will not break the card. -->
-  <style>
-    .equipment-grid {
-      display: grid !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 28px !important;
-      height: auto !important;
-      max-height: none !important;
-      overflow: visible !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-
-    .equipment-card {
-      display: block !important;
-      height: auto !important;
-      max-height: none !important;
-      overflow: hidden !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: none;
-    }
-
-    .equipment-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .equipment-card img {
-      width: 100%;
-      height: 300px;
-      object-fit: contain;
-      background: #ffffff;
-    }
-
-    .equipment-body {
-      padding: 20px;
-    }
-
-    .equipment-details {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .equipment-details li {
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .equipment-details strong {
-      display: block;
-      font-weight: 800;
-      color: #344054;
-      font-size: 13px;
-    }
-
-    .equipment-details span {
-      display: block;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    .text-size-box {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      background-color: white;
-      padding: 10px 12px;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-      z-index: 1000;
-      text-align: center;
-      border: 1px solid #e0e0e0;
-    }
-
-    .text-size-box p {
-      margin: 0 0 8px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #4b5563;
-    }
-
-    .text-size-buttons {
-      display: flex;
-      gap: 8px;
-    }
-
-    .text-size-buttons button {
-      border: none;
-      background-color: #ffffff;
-      color: #000000;
-      padding: 6px 9px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    @media (max-width: 1000px) {
-      .equipment-grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .equipment-card img {
-        height: 240px;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -126,372 +13,408 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
-      </a>
+  <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
+</a>
+ <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">
+      ☰
+    </button>
 
-      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">
-        ☰
-      </button>
+   <nav class="navbar">
 
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li><a href="IOT.html">IOT</a></li>
-          <li><a href="Dashboard.html">Dashboard</a></li>
-          <li><a href="index.html">Home</a></li>
+  <ul class="nav-links">
+    <li><a href="IOT.html">IOT</a></li>
+    <li><a href="Dashboard.html">Dashboard</a></li>
+    <li><a href="index.html">Home</a></li>
 
-          <li class="dropdown">
-            <a href="#">R1 ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="buildingA.html">Building A</a></li>
-              <li><a href="buildingB.html">Building B</a></li>
-              <li><a href="buildingC.html">Building C</a></li>
-              <li><a href="buildingD.html">Building D</a></li>
-              <li><a href="buildingE.html">Building E</a></li>
-            </ul>
-          </li>
+<li class="dropdown">
+  <a href="#">R1 ▾</a>
 
-          <li><a href="r2.html">R2</a></li>
-          <li><a href="r3.html" class="active">R3</a></li>
-        </ul>
-      </nav>
+  <ul class="dropdown-menu">
+    <li><a href="buildingA.html">Building A</a></li>
+    <li><a href="buildingB.html">Building B</a></li>
+    <li><a href="buildingC.html">Building C</a></li>
+    <li><a href="buildingD.html">Building D</a></li>
+    <li><a href="buildingE.html">Building E</a></li>
+  </ul>
+</li>
+
+<li><a href="r2.html">R2</a></li>
+<li><a href="r3.html" class="active">R3</a></li>
+
+  </ul>
+</nav>
     </div>
   </header>
 
   <main>
+  <section class="building-hero-carousel">
+  <div class="carousel-track">
+    <img src="assets/drawings/r3-1.png" alt="Building R3 Photo 1">
+    <img src="assets/drawings/r3-2.png" alt="Building R3 Photo 2">
+    <img src="assets/drawings/r3-3.png" alt="Building R3 Photo 3">
+    <img src="assets/drawings/r3-4.png" alt="Building R3 Photo 4">
+    <img src="assets/drawings/r3-5.png" alt="Building R3 Photo 5">
+    <img src="assets/drawings/r3-6.png" alt="Building R3 Photo 6">
+    <img src="assets/drawings/r3-7.png" alt="Building R3 Photo 7">
+    <img src="assets/drawings/r3-8.png" alt="Building R3 Photo 8">
+  </div>
 
-    <section class="building-hero-carousel">
-      <div class="carousel-track">
-        <img src="assets/drawings/r3-1.png" alt="Building R3 Photo 1">
-        <img src="assets/drawings/r3-2.png" alt="Building R3 Photo 2">
-        <img src="assets/drawings/r3-3.png" alt="Building R3 Photo 3">
-        <img src="assets/drawings/r3-4.png" alt="Building R3 Photo 4">
-        <img src="assets/drawings/r3-5.png" alt="Building R3 Photo 5">
-        <img src="assets/drawings/r3-6.png" alt="Building R3 Photo 6">
-        <img src="assets/drawings/r3-7.png" alt="Building R3 Photo 7">
-        <img src="assets/drawings/r3-8.png" alt="Building R3 Photo 8">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-text">
+    <h1>R3</h1>
+  </div>
+
+<button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous slide"></button><button class="carousel-btn next-btn" id="nextBtn" aria-label="Next slide"></button>
+
+</section>
+
+<section class="section">
+  <div class="container summary-grid">
+    <div>
+      <div class="section-title">
+        <h2>Building Overview</h2>
+        <p>Facility information for BIT-R3 covering utility systems, electrical supply, HVAC, CDA, water systems, boiler, wastewater treatment, exhaust, fire safety, UPS and generators.</p>
       </div>
-
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-text">
-        <h1>R3</h1>
+      <div class="two-stat-grid">
+        <div class="stat"><strong>5,933.6</strong><span>sq.m area</span></div>
+        <div class="stat"><strong>3-2-83.4 Rai</strong><span>land area reference</span></div>
       </div>
+    </div>
+    <div>
+      
+  <figure class="image-card">
+    <img src="assets/drawings/building-r3-floorplan.png" alt="Building A Floor Layout" />
+    <figcaption>R3 Floor Layout</figcaption>
+  </figure>
 
-      <button class="carousel-btn prev-btn" id="prevBtn" type="button" aria-label="Previous slide"></button>
-      <button class="carousel-btn next-btn" id="nextBtn" type="button" aria-label="Next slide"></button>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="container summary-grid">
-        <div>
-          <div class="section-title">
-            <h2>Building Overview</h2>
-            <p>
-              Facility information for BIT-R3 covering utility systems, electrical supply, HVAC, CDA,
-              water systems, boiler, wastewater treatment, exhaust, fire safety, UPS and generators.
-            </p>
-          </div>
-
-          <div class="two-stat-grid">
-            <div class="stat">
-              <strong>5,933.6</strong>
-              <span>sq.m area</span>
-            </div>
-
-            <div class="stat">
-              <strong>3-2-83.4 Rai</strong>
-              <span>land area reference</span>
-            </div>
-          </div>
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Equipments</h2>
+    </div>
+    <div class="equipment-grid">
+        
+      <article class="equipment-card">
+        <img src="assets/drawings/MDB_r3.png" alt="Main Distribution Board MDB1">
+        <div class="equipment-body">
+          <span class="equipment-tag">Electrical</span>
+          <h3>Main Distribution Board MDB1</h3>
+          <p class="equipment-location">
+          <dl>
+             <div><dt>Supply</dt><dd>PEA supply 22 kV for BIT-R3.</dd></div>
+        <div><dt>Transformer</dt><dd>1 x 1500 kVA transformer.</dd></div>
+        <div><dt>MDB</dt><dd>MDB 2500A located on 1st floor.</dd></div>
+        <div><dt>Function</dt><dd>Main electrical supply and distribution system for BIT-R3 building utilities and production support loads.</dd></div>
+          </dl>
         </div>
+      </article>
+    
+      <article class="equipment-card">
+        <img src="assets/drawings/cdu-r3.png" alt="VRV Air Condition System">
+        <div class="equipment-body">
+          <span class="equipment-tag">Air Conditioning</span>
+          <h3>VRV Air Condition System</h3>
 
-        <div>
-          <figure class="image-card">
-            <img src="assets/drawings/building-r3-floorplan.png" alt="R3 Floor Layout" />
-            <figcaption>R3 Floor Layout</figcaption>
-          </figure>
+          <dl>
+           <div><dt>Brand</dt><dd>Daikin</dd></div>
+        <div><dt>CDU-1</dt><dd>535,328 BTU/h, 1 unit, supplies 10 FCU units.</dd></div>
+        <div><dt>CDU-2</dt><dd>480,733 BTU/h, 1 unit, supplies 14 FCU units.</dd></div>
+        <div><dt>Refrigerant</dt><dd>R410A</dd></div>
+        <div><dt>Function</dt><dd>Provides air conditioning for office, production and support areas in BIT-R3.</dd></div>
+          </dl>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Equipments</h2>
+      </article>
+    
+      <article class="equipment-card">
+        <img src="assets/drawings/airsplit-r3.png" alt="Air Split Type">
+        <div class="equipment-body">
+          <span class="equipment-tag">HVAC</span>
+          <h3>Air Split Type</h3>
+          <p class="equipment-location">
+          <dl>
+        <div><dt>Total</dt><dd>12 units.</dd></div>
+        <div><dt>Brands</dt><dd>Daikin and Carrier.</dd></div>
+        <div><dt>Power</dt><dd>1 Phase, 220V, 50Hz.</dd></div>
+        <div><dt>Refrigerant</dt><dd>R410A for Daikin units and R32 for Carrier units.</dd></div>
+        <div><dt>Function</dt><dd>Supports room-level cooling in selected areas of BIT-R3.</dd></div>
+          </dl>
         </div>
-
-        <div class="equipment-grid">
-
-          <article class="equipment-card">
-            <img src="assets/drawings/MDB_r3.png" alt="Main Distribution Board MDB1">
-            <div class="equipment-body">
-              <span class="equipment-tag">Electrical</span>
-              <h3>Main Distribution Board MDB1</h3>
-              <ul class="equipment-details">
-                <li><strong>Supply</strong><span>PEA supply 22 kV for BIT-R3.</span></li>
-                <li><strong>Transformer</strong><span>1 x 1500 kVA transformer.</span></li>
-                <li><strong>MDB</strong><span>MDB 2500A located on 1st floor.</span></li>
-                <li><strong>Function</strong><span>Main electrical supply and distribution system for BIT-R3 building utilities and production support loads.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/cdu-r3.png" alt="VRV Air Condition System">
-            <div class="equipment-body">
-              <span class="equipment-tag">Air Conditioning</span>
-              <h3>VRV Air Condition System</h3>
-              <ul class="equipment-details">
-                <li><strong>Brand</strong><span>Daikin.</span></li>
-                <li><strong>CDU-1</strong><span>535,328 BTU/h, 1 unit, supplies 10 FCU units.</span></li>
-                <li><strong>CDU-2</strong><span>480,733 BTU/h, 1 unit, supplies 14 FCU units.</span></li>
-                <li><strong>Refrigerant</strong><span>R410A.</span></li>
-                <li><strong>Function</strong><span>Provides air conditioning for office, production and support areas in BIT-R3.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/airsplit-r3.png" alt="Air Split Type">
-            <div class="equipment-body">
-              <span class="equipment-tag">HVAC</span>
-              <h3>Air Split Type</h3>
-              <ul class="equipment-details">
-                <li><strong>Total</strong><span>12 units.</span></li>
-                <li><strong>Brands</strong><span>Daikin and Carrier.</span></li>
-                <li><strong>Power</strong><span>1 Phase, 220V, 50Hz.</span></li>
-                <li><strong>Refrigerant</strong><span>R410A for Daikin units and R32 for Carrier units.</span></li>
-                <li><strong>Function</strong><span>Supports room-level cooling in selected areas of BIT-R3.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/evaporate-r3.png" alt="Evaporative Air Cooler">
-            <div class="equipment-body">
-              <span class="equipment-tag">Ventilation</span>
-              <h3>Evaporative Air Cooler</h3>
-              <ul class="equipment-details">
-                <li><strong>Total</strong><span>6 units.</span></li>
-                <li><strong>Brand / Model</strong><span>MASTERKOOL U-KOOL 30 with filter.</span></li>
-                <li><strong>Air Flow</strong><span>30,000 CMH per unit.</span></li>
-                <li><strong>Function</strong><span>Provides fresh air and cooling support for the plant area.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/cda-r3.png" alt="CDA System">
-            <div class="equipment-body">
-              <span class="equipment-tag">CDA</span>
-              <h3>CDA System</h3>
-              <ul class="equipment-details">
-                <li><strong>Air Compressor</strong><span>Model S125, 90 kW, 582 CFM, total 2 units.</span></li>
-                <li><strong>Air Dryer</strong><span>Model DAT 150, 3.28 kW, 400V/3/50Hz, total 2 units.</span></li>
-                <li><strong>Air Flow</strong><span>Air dryer flow 741 CFM.</span></li>
-                <li><strong>Function</strong><span>Provides compressed dry air for production and utility requirements.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/raw-water-r3.png" alt="Raw Water System">
-            <div class="equipment-body">
-              <span class="equipment-tag">Water</span>
-              <h3>Raw Water System</h3>
-              <ul class="equipment-details">
-                <li><strong>Tank</strong><span>Underground raw water sump tank around 60 m³.</span></li>
-                <li><strong>Pump</strong><span>Ebora 4 kW, 9 Amp, total 2 units.</span></li>
-                <li><strong>Backup</strong><span>Approximately 2.5 hours backup at peak usage of 702 m³/day.</span></li>
-                <li><strong>Function</strong><span>Stores and supplies raw water for the water treatment system.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/ro-r3.png" alt="RO-EDI System">
-            <div class="equipment-body">
-              <span class="equipment-tag">Water Treatment</span>
-              <h3>RO-EDI System</h3>
-              <ul class="equipment-details">
-                <li><strong>RO System</strong><span>Flow rate 24 CMH with RO stock tank 60 m³.</span></li>
-                <li><strong>DI System</strong><span>Flow rate 10 CMH with DI stock tank 30 m³.</span></li>
-                <li><strong>RO Supply</strong><span>EN 1, EN 2 machine line and steam boiler machine.</span></li>
-                <li><strong>DI Supply</strong><span>EN 1, EN 2 machine line, JIC / stripping machine and lab room.</span></li>
-                <li><strong>Function</strong><span>Produces RO and DI water for production process requirements.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/lpg-r3.png" alt="LPG Station">
-            <div class="equipment-body">
-              <span class="equipment-tag">Gas</span>
-              <h3>LPG Station</h3>
-              <ul class="equipment-details">
-                <li><strong>Cylinder Size</strong><span>48 kg LPG gas cylinder.</span></li>
-                <li><strong>Supply</strong><span>10 cylinders.</span></li>
-                <li><strong>Standby</strong><span>10 cylinders.</span></li>
-                <li><strong>Total</strong><span>20 cylinders.</span></li>
-                <li><strong>Function</strong><span>Supplies gas to the boiler system and canteen.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/boiler-r3.png" alt="Steam Boiler System">
-            <div class="equipment-body">
-              <span class="equipment-tag">Boiler</span>
-              <h3>Steam Boiler System</h3>
-              <ul class="equipment-details">
-                <li><strong>Capacity</strong><span>1500 kg.</span></li>
-                <li><strong>Pressure</strong><span>7 bar pressure supply for EN machine line.</span></li>
-                <li><strong>Function</strong><span>Provides steam support for EN production machine line.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/wwt-r3.png" alt="Wastewater Treatment Plant">
-            <div class="equipment-body">
-              <span class="equipment-tag">Wastewater</span>
-              <h3>Wastewater Treatment Plant</h3>
-              <ul class="equipment-details">
-                <li><strong>System</strong><span>Chemical treatment system.</span></li>
-                <li><strong>Capacity</strong><span>13 CMH.</span></li>
-                <li><strong>Process Wastewater</strong><span>Wastewater from EN plating process is treated before release to Rojana.</span></li>
-                <li><strong>Other Wastewater</strong><span>Wastewater from other building activities is treated by grease trap before release.</span></li>
-                <li><strong>Function</strong><span>Controls and treats wastewater generated from production and building activities.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/wetscrubber-r3.png" alt="Wet Scrubber System">
-            <div class="equipment-body">
-              <span class="equipment-tag">Air Pollution Control</span>
-              <h3>Wet Scrubber System</h3>
-              <ul class="equipment-details">
-                <li><strong>Wet Scrubber No. 1 and 2</strong><span>Capacity 26,470 CFM, total 2 units.</span></li>
-                <li><strong>Wet Scrubber No. 3</strong><span>Capacity 22 CFM.</span></li>
-                <li><strong>Support Area</strong><span>Supports EN line.</span></li>
-                <li><strong>Function</strong><span>Controls air pollution from process exhaust before discharge.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/exhaust-r3.png" alt="Exhaust System">
-            <div class="equipment-body">
-              <span class="equipment-tag">Exhaust</span>
-              <h3>Exhaust System</h3>
-              <ul class="equipment-details">
-                <li><strong>Exhaust No. 01</strong><span>Supports oven machines, centrifugal blower 2000 CFM, SP = 3.0 in.WG.</span></li>
-                <li><strong>Exhaust No. 02</strong><span>Supports laser mark machines, centrifugal blower 2000 CFM, SP = 3.0 in.WG.</span></li>
-                <li><strong>Exhaust No. 03</strong><span>Supports EN solution room, centrifugal blower 3500 CFM, SP = 4.0 in.WG.</span></li>
-                <li><strong>Function</strong><span>Removes process fumes and supports chemical store, laser room and production exhaust areas.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/alarm-r3.png" alt="Fire Alarm Systems">
-            <div class="equipment-body">
-              <span class="equipment-tag">Safety</span>
-              <h3>Fire Alarm Systems</h3>
-              <ul class="equipment-details">
-                <li><strong>Control Panel</strong><span>NOHMI FAPN105N Series, alarm 9 zone.</span></li>
-                <li><strong>Heat Detector</strong><span>143 points.</span></li>
-                <li><strong>Smoke Detector</strong><span>23 points.</span></li>
-                <li><strong>Beam Smoke Detector</strong><span>1 point.</span></li>
-                <li><strong>Function</strong><span>Detects and alerts fire emergency conditions across BIT-R3.</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="equipment-card">
-            <img src="assets/drawings/firepump-r3.png" alt="Fire Pump">
-            <div class="equipment-body">
-              <span class="equipment-tag">Safety</span>
-              <h3>Fire Pump</h3>
-              <ul class="equipment-details">
-                <li><strong>Brand</strong><span>CLARKE.</span></li>
-                <li><strong>Model</strong><span>JU4H-UF50.</span></li>
-                <li><strong>Rated Power</strong><span>130 HP.</span></li>
-                <li><strong>Flow</strong><span>750 GPM / 173 psi.</span></li>
-                <li><strong>Function</strong><span>Supplies water for fire protection system during emergency.</span></li>
-              </ul>
-            </div>
-          </article>
-
-           <article class="equipment-card">
-            <img src="assets/drawings/firepump-r3.png" alt="Fire Pump">
-            <div class="equipment-body">
-              <span class="equipment-tag">Safety</span>
-              <h3>Fire Pump</h3>
-              <ul class="equipment-details">
-                <li><strong>Brand</strong><span>CLARKE.</span></li>
-                <li><strong>Model</strong><span>JU4H-UF50.</span></li>
-                <li><strong>Rated Power</strong><span>130 HP.</span></li>
-                <li><strong>Flow</strong><span>750 GPM / 173 psi.</span></li>
-                <li><strong>Function</strong><span>Supplies water for fire protection system during emergency.</span></li>
-              </ul>
-            </div>
-          </article>
-
-
+      </article>
+    
+      <article class="equipment-card">
+        <img src="assets/drawings/evaporate-r3.png" alt="Evaporative Air Cooler">
+        <div class="equipment-body">
+          <span class="equipment-tag">Ventilation</span>
+          <h3>Evaporative Air Cooler</h3>
+          <p class="equipment-location">
+          <dl>
+             <div><dt>Total</dt><dd>6 units.</dd></div>
+        <div><dt>Brand / Model</dt><dd>MASTERKOOL U-KOOL 30 with filter.</dd></div>
+        <div><dt>Air Flow</dt><dd>30,000 CMH per unit.</dd></div>
+        <div><dt>Function</dt><dd>Provides fresh air and cooling support for the plant area.</dd></div>
+          </dl>
         </div>
-      </div>
-    </section>
+      </article>
+    
+      <article class="equipment-card">
+        <img src="assets/drawings/cda-r3.png" alt="CDA System">
+        <div class="equipment-body">
+          <span class="equipment-tag">CDA</span>
+          <h3>CDA System</h3>
+          <p class="equipment-location">
+          <dl>
+           <div><dt>Air Compressor</dt><dd>Model S125, 90 kW, 582 CFM, total 2 units.</dd></div>
+        <div><dt>Air Dryer</dt><dd>Model DAT 150, 3.28 kW, 400V/3/50Hz, total 2 units.</dd></div>
+        <div><dt>Air Flow</dt><dd>Air dryer flow 741 CFM.</dd></div>
+        <div><dt>Function</dt><dd>Provides compressed dry air for production and utility requirements.</dd></div>
+          </dl>
+        </div>
+      </article>
+    
+      <article class="equipment-card">
+        <img src="assets/drawings/raw-water-r3.png" alt="Raw Water System">
+        <div class="equipment-body">
+          <span class="equipment-tag">Water</span>
+          <h3>Raw Water System</h3>
+          <dl>
+        <div><dt>Tank</dt><dd>Underground raw water sump tank around 60 m³.</dd></div>
+        <div><dt>Pump</dt><dd>Ebora 4 kW, 9 Amp, total 2 units.</dd></div>
+        <div><dt>Backup</dt><dd>Approximately 2.5 hours backup at peak usage of 702 m³/day.</dd></div>
+        <div><dt>Function</dt><dd>Stores and supplies raw water for the water treatment system.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+       <article class="equipment-card">
+        <img src="assets/drawings/ro-r3.png" alt="RO-EDI System">
+        <div class="equipment-body">
+          <span class="equipment-tag">Water Treatment</span>
+          <h3>RO-EDI System</h3>
+          <dl>
+        <div><dt>RO System</dt><dd>Flow rate 24 CMH with RO stock tank 60 m³.</dd></div>
+        <div><dt>DI System</dt><dd>Flow rate 10 CMH with DI stock tank 30 m³.</dd></div>
+        <div><dt>RO Supply</dt><dd>EN 1, EN 2 machine line and steam boiler machine.</dd></div>
+        <div><dt>DI Supply</dt><dd>EN 1, EN 2 machine line, JIC / stripping machine and lab room.</dd></div>
+        <div><dt>Function</dt><dd>Produces RO and DI water for production process requirements.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="equipment-card">
+        <img src="assets/drawings/lpg-r3.png" alt="LPG Station">
+        <div class="equipment-body">
+          <span class="equipment-tag">Gas</span>
+          <h3>LPG Station</h3>
+          <dl>
+        <div><dt>Cylinder Size</dt><dd>48 kg LPG gas cylinder.</dd></div>
+        <div><dt>Supply</dt><dd>10 cylinders.</dd></div>
+        <div><dt>Standby</dt><dd>10 cylinders.</dd></div>
+        <div><dt>Total</dt><dd>20 cylinders.</dd></div>
+        <div><dt>Function</dt><dd>Supplies gas to the boiler system and canteen.</dd></div>
+      </dl>
+        </div>
+      </article>
+
+      <article class="equipment-card">
+        <img src="assets/drawings/boiler-r3.png" alt="Steam Boiler System">
+        <div class="equipment-body">
+          <span class="equipment-tag">Boiler</span>
+        <h3>Steam Boiler System</h3>
+      <dl>
+        <div><dt>Capacity</dt><dd>1500 kg.</dd></div>
+        <div><dt>Pressure</dt><dd>7 bar pressure supply for EN machine line.</dd></div>
+        <div><dt>Function</dt><dd>Provides steam support for EN production machine line.</dd></div>
+      </dl>
+        </div>
+      </article>
+
+       <article class="equipment-card">
+        <img src="assets/drawings/wwt-r3.png" alt="Wastewater Treatment Plant">
+        <div class="equipment-body">
+        <span class="equipment-tag">Wastewater</span>
+      <h3>Wastewater Treatment Plant</h3>
+      <dl>
+        <div><dt>System</dt><dd>Chemical treatment system.</dd></div>
+        <div><dt>Capacity</dt><dd>13 CMH.</dd></div>
+        <div><dt>Process Wastewater</dt><dd>Wastewater from EN plating process is treated before release to Rojana.</dd></div>
+        <div><dt>Other Wastewater</dt><dd>Wastewater from other building activities is treated by grease trap before release.</dd></div>
+        <div><dt>Function</dt><dd>Controls and treats wastewater generated from production and building activities.</dd></div>
+      </dl>
+        </div>
+      </article>
+
+
+      <article class="equipment-card">
+        <img src="assets/drawings/wetscrubber-r3.png" alt="Wet Scrubber System">
+        <div class="equipment-body">
+        <span class="equipment-tag">Air Pollution Control</span>
+      <h3>Wet Scrubber System</h3>
+      <dl>
+        <div><dt>Wet Scrubber No. 1 and 2</dt><dd>Capacity 26,470 CFM, total 2 units.</dd></div>
+        <div><dt>Wet Scrubber No. 3</dt><dd>Capacity 22 CFM.</dd></div>
+        <div><dt>Support Area</dt><dd>Supports EN line.</dd></div>
+        <div><dt>Function</dt><dd>Controls air pollution from process exhaust before discharge.</dd></div>
+      </dl>
+        </div>
+      </article>
+
+
+       <article class="equipment-card">
+        <img src="assets/drawings/exhaust-r3.png" alt="Exhaust System">
+        <div class="equipment-body">
+        <span class="equipment-tag">Exhaust</span>
+      <h3>Exhaust System</h3>
+      <dl>
+        <div><dt>Exhaust No. 01</dt><dd>Supports oven machines, centrifugal blower 2000 CFM, SP = 3.0 in.WG.</dd></div>
+        <div><dt>Exhaust No. 02</dt><dd>Supports laser mark machines, centrifugal blower 2000 CFM, SP = 3.0 in.WG.</dd></div>
+        <div><dt>Exhaust No. 03</dt><dd>Supports EN solution room, centrifugal blower 3500 CFM, SP = 4.0 in.WG.</dd></div>
+        <div><dt>Function</dt><dd>Removes process fumes and supports chemical store, laser room and production exhaust areas.</dd></div>
+      </dl>
+        </div>
+      </article> 
+
+      <article class="equipment-card">
+        <img src="assets/drawings/alarm-r3.png" alt="Fire Alarm Systems">
+        <div class="equipment-body">
+        <span class="equipment-tag">Safety</span>
+      <h3>Fire Alarm Systems</h3>
+      <dl>
+        <div><dt>Control Panel</dt><dd>NOHMI FAPN105N Series, alarm 9 zone.</dd></div>
+        <div><dt>Heat Detector</dt><dd>143 points</dd></div>
+        <div><dt>Smoke Detector</dt><dd>23 points</dd></div>
+        <div><dt>Beam Smoke Detector</dt><dd>1 point</dd></div>
+        <div><dt>Function</dt><dd>Detects and alerts fire emergency conditions across BIT-R3.</dd></div>
+      </dl>
+        </div>
+      </article> 
+
+      <article class="equipment-card">
+        <img src="assets/drawings/firepump-r3.png" alt="Fire Pump">
+        <div class="equipment-body">
+        <span class="equipment-tag">Safety</span>
+      <h3>Fire Pump</h3>
+      <dl>
+        <div><dt>Brand</dt><dd>CLARKE</dd></div>
+        <div><dt>Model</dt><dd>JU4H-UF50</dd></div>
+        <div><dt>Rated Power</dt><dd>130 HP.</dd></div>
+        <div><dt>Flow</dt><dd>750 GPM / 173 psi.</dd></div>
+        <div><dt>Function</dt><dd>Supplies water for fire protection system during emergency.</dd></div>
+      </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
   </main>
 
   <footer class="site-footer">
     <p>Belton Technology | Facility Portal</p>
   </footer>
 
-  <div class="text-size-box">
-    <p>Text Size</p>
-    <div class="text-size-buttons">
-      <button onclick="changeTextSize(-1)" type="button">A-</button>
-      <button onclick="changeTextSize(1)" type="button">A+</button>
-    </div>
-  </div>
+<script src="script.js"></script>
 
-  <script src="script.js"></script>
+<div class="text-zoom-box">
+  <button onclick="changeTextSize(-1)" type="button">A-</button>
+  <button onclick="changeTextSize(1)" type="button">A+</button>
+</div>
 
-  <script>
-    // Safe text-size code. Uses var instead of let so it will not crash if another script already exists.
-    var r3ZoomAmount = Number(localStorage.getItem("r3ZoomAmount")) || 0;
+<style>
+  .text-zoom-box {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 12px;
+    background: white;
+    padding: 14px 18px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+  }
 
-    window.changeTextSize = function(direction) {
-      r3ZoomAmount += direction;
+  .text-zoom-box button {
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: black;
+  }
 
-      if (r3ZoomAmount > 4) r3ZoomAmount = 4;
-      if (r3ZoomAmount < -3) r3ZoomAmount = -3;
+  .equipment-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 28px !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 
-      localStorage.setItem("r3ZoomAmount", r3ZoomAmount);
-      applyR3TextSize();
-    };
+  .equipment-card,
+  .equipment-card:nth-child(n) {
+    display: block !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
 
-    function applyR3TextSize() {
-      var elements = document.querySelectorAll(
-        "h1, h2, h3, h4, h5, h6, p, a, li, span, strong"
-      );
+  .equipment-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+  }
 
-      elements.forEach(function(el) {
-        if (el.closest(".text-size-box")) return;
-
-        if (!el.dataset.originalSize) {
-          el.dataset.originalSize = window.getComputedStyle(el).fontSize;
-        }
-
-        var originalSize = parseFloat(el.dataset.originalSize);
-        el.style.fontSize = originalSize + r3ZoomAmount * 2 + "px";
-      });
+  @media (max-width: 900px) {
+    .equipment-grid {
+      grid-template-columns: 1fr !important;
     }
+  }
+</style>
 
-    applyR3TextSize();
-  </script>
+<script>
+  let zoomAmount = Number(localStorage.getItem("zoomAmount")) || 0;
+
+  function changeTextSize(direction) {
+    zoomAmount += direction;
+
+    if (zoomAmount > 4) zoomAmount = 4;
+    if (zoomAmount < -3) zoomAmount = -3;
+
+    localStorage.setItem("zoomAmount", zoomAmount);
+    applyTextSize();
+  }
+
+  function applyTextSize() {
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, h4, h5, h6, p, a, li, span"
+    );
+
+    elements.forEach(function (el) {
+      if (el.closest(".text-zoom-box")) return;
+
+      if (!el.dataset.originalSize) {
+        el.dataset.originalSize = window.getComputedStyle(el).fontSize;
+      }
+
+      const originalSize = parseFloat(el.dataset.originalSize);
+      el.style.fontSize = originalSize + zoomAmount * 2 + "px";
+    });
+  }
+
+  applyTextSize();
+</script>
 
 </body>
 </html>

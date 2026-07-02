@@ -5,6 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Belton Technology | R2</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+
+    /* R2 SAFE FIX:
+       Do not use <dl><div> rows inside equipment cards.
+       This page uses <ul><li> rows, so the old 4-div disappearing bug cannot trigger. */
+
+    .equipment-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 28px !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+
+    .equipment-card {
+      display: block !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: hidden !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      background: var(--card, #ffffff) !important;
+      border: 1px solid var(--line, #e5e7eb) !important;
+      border-radius: 18px !important;
+      box-shadow: 0 8px 22px rgba(16, 24, 40, 0.07) !important;
+    }
+
+    .equipment-card:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 16px 32px rgba(16, 24, 40, 0.13) !important;
+    }
+
+    .equipment-card img {
+      display: block !important;
+      width: 100% !important;
+      height: 280px !important;
+      object-fit: contain !important;
+      background: #ffffff !important;
+      border-bottom: 1px solid var(--line, #e5e7eb) !important;
+    }
+
+    .equipment-body {
+      display: block !important;
+      padding: 20px !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+    }
+
+    .equipment-details {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: grid !important;
+      gap: 0 !important;
+    }
+
+    .equipment-details li {
+      display: block !important;
+      padding: 12px 0 !important;
+      border-top: 1px solid var(--line, #e5e7eb) !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .equipment-details strong {
+      display: block !important;
+      font-weight: 800 !important;
+      color: #344054 !important;
+      font-size: 13px !important;
+      line-height: 1.35 !important;
+    }
+
+    .equipment-details span {
+      display: block !important;
+      color: var(--muted, #667085) !important;
+      margin-top: 3px !important;
+      line-height: 1.55 !important;
+    }
+
+    .text-zoom-box {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      display: flex;
+      gap: 12px;
+      background: white;
+      padding: 14px 18px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      z-index: 99999;
+    }
+
+    .text-zoom-box button {
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: black;
+    }
+
+    @media (max-width: 900px) {
+      .equipment-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .equipment-card img {
+        height: 230px !important;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
@@ -12,15 +133,13 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo">
+        <img src="assets/photos/belton-logo.png" alt="Belton Technology Logo" class="company-logo" />
       </a>
 
-      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">
-        ☰
-      </button>
+      <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open menu">☰</button>
 
       <nav class="navbar">
-        <ul class="nav-links">
+        <ul class="nav-links" id="mobileNav">
           <li><a href="IOT.html">IOT</a></li>
           <li><a href="Dashboard.html">Dashboard</a></li>
           <li><a href="index.html">Home</a></li>
@@ -46,9 +165,12 @@
   <main>
     <section class="building-hero-carousel">
       <div class="carousel-track">
-        <img src="assets/drawings/building-r2-layout.png" alt="BIT-R2 Layout">
-        <img src="assets/drawings/r2-utility-layout.png" alt="BIT-R2 Utility Layout">
-        <img src="assets/drawings/r2-safety-layout.png" alt="BIT-R2 Safety Layout">
+        <img src="assets/drawings/r2-1.png" alt="R2 Facility Image 1" />
+        <img src="assets/drawings/r2-2.png" alt="R2 Facility Image 2" />
+        <img src="assets/drawings/r2-3.png" alt="R2 Facility Image 3" />
+        <img src="assets/drawings/r2-4.png" alt="R2 Facility Image 4" />
+        <img src="assets/drawings/r2-5.png" alt="R2 Facility Image 5" />
+        
       </div>
 
       <div class="hero-overlay"></div>
@@ -63,24 +185,23 @@
 
     <section class="section">
       <div class="container summary-grid">
-        <div>
+        <section>
           <div class="section-title">
             <h2>Building Overview</h2>
-            <p>Facility information for BIT-R2 covering plant layout, electrical supply, lighting, HVAC, CDA, exhaust and oil mist, fresh air, water systems, wastewater treatment, fire safety, generator, UPS and lightning protection.</p>
+            <p>Facility information for BIT-R2 covering electrical distribution, lighting, HVAC, CDA, oil mist, fresh air, water systems, wastewater treatment, fire safety, generator, UPS and lightning protection.</p>
           </div>
-
           <div class="two-stat-grid">
-            <div class="stat"><strong>4 x 4000 kVA</strong><span>transformers</span></div>
-            <div class="stat"><strong>4 x 6300A</strong><span>main distribution boards</span></div>
+            <div class="stat"><strong>21,440</strong><span>sq.m area</span></div>
+            <div class="stat"><strong>13-1-60 Rai</strong><span>Land area reference</span></div>
           </div>
-        </div>
+        </section>
 
-        <div>
+        <section>
           <figure class="image-card">
             <img src="assets/drawings/building-r2-floorplan.png" alt="R2 Floor Layout" />
             <figcaption>R2 Floor Layout</figcaption>
           </figure>
-        </div>
+        </section>
       </div>
     </section>
 
@@ -91,22 +212,411 @@
         </div>
 
         <div class="equipment-grid">
-
           <article class="equipment-card">
-            <img src="assets/drawings/r2-transformer.png" alt="R2 Transformer System">
-            <div class="equipment-body">
+            <img src="assets/drawings/transformer-r2.png" alt="R2 Transformer System" />
+            <section class="equipment-body">
               <span class="equipment-tag">Electrical</span>
               <h3>Transformer System</h3>
-              <dl>
-                <div><dt>Transformer No. 1-3</dt><dd>3 x 4000 kVA, 22 kV / 400V.</dd></div>
-                <div><dt>Transformer No. 4</dt><dd>1 x 4000 kVA, 22 kV / 400V.</dd></div>
-                <div><dt>Total</dt><dd>4 transformers supporting BIT-R2 main electrical supply.</dd></div>
-                <div><dt>Function</dt><dd>Steps down incoming 22 kV supply for building utility and production loads.</dd></div>
-              </dl>
-            </div>
+              <ul class="equipment-details">
+                <li><strong>Transformer No. 1-3</strong><span>3 x 4000 kVA, 22 kV / 400 V.</span></li>
+                <li><strong>Transformer No. 4</strong><span>1 x 4000 kVA, 22 kV / 400 V.</span></li>
+                <li><strong>Supply Purpose</strong><span>Main incoming power supply for BIT-R2 production and utility loads.</span></li>
+                <li><strong>Total Capacity</strong><span>4 transformers supporting old plant and extension area.</span></li>
+              </ul>
+            </section>
           </article>
 
+          <article class="equipment-card">
+            <img src="assets/drawings/mdb-r2.png" alt="R2 Main Distribution Board" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Electrical</span>
+              <h3>Main Distribution Board MDB 1-4</h3>
+              <ul class="equipment-details">
+                <li><strong>MDB No. 1-3</strong><span>3 x 6300A, 400V, supplied from Transformer 1-3.</span></li>
+                <li><strong>MDB No. 4</strong><span>1 x 6300A, 400V, supplied from Transformer 4.</span></li>
+                <li><strong>Main Loads</strong><span>CNC DBs, CDA, air dryer, raw water pump, RO, WWTP, oil mist and lighting.</span></li>
+                <li><strong>Extension Loads</strong><span>CNC, cutter machines, air compressor, AC and oil mist extension loads.</span></li>
+              </ul>
+            </section>
+          </article>
 
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-lighting.png" alt="R2 Lighting System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Lighting</span>
+              <h3>Lighting System</h3>
+              <ul class="equipment-details">
+                <li><strong>Old Plant</strong><span>Total lighting: 2,258 lamps.</span></li>
+                <li><strong>Extension Zone</strong><span>Total lighting: 1,234 lamps.</span></li>
+                <li><strong>Lamp Type</strong><span>Philips Master Series LED T8 Tube.</span></li>
+                <li><strong>Function</strong><span>Lighting for CNC zones, utility building, office, canteen, warehouse and support rooms.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-chiller.png" alt="R2 Chiller Machine" />
+            <section class="equipment-body">
+              <span class="equipment-tag">HVAC</span>
+              <h3>Chiller Machine</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>DB.</span></li>
+                <li><strong>Model</strong><span>DCLCD650E.</span></li>
+                <li><strong>Capacity</strong><span>650 RT x 3 units.</span></li>
+                <li><strong>Function</strong><span>Provides chilled water for BIT-R2 air-conditioning and process cooling support.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-chilled-water-pump.png" alt="R2 Chilled Water Pump" />
+            <section class="equipment-body">
+              <span class="equipment-tag">HVAC</span>
+              <h3>Chilled Water Pump</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>Mitsubishi.</span></li>
+                <li><strong>Model</strong><span>JEC-21337-2000.</span></li>
+                <li><strong>Capacity</strong><span>1550 / 1560 GPM x 4 units.</span></li>
+                <li><strong>Function</strong><span>Circulates chilled water from chiller system to cooling users.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-cooling-tower.png" alt="R2 Cooling Tower" />
+            <section class="equipment-body">
+              <span class="equipment-tag">HVAC</span>
+              <h3>Cooling Tower</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>BKK.</span></li>
+                <li><strong>Model</strong><span>S 900 RT.</span></li>
+                <li><strong>Capacity</strong><span>900 RT x 4 units.</span></li>
+                <li><strong>Function</strong><span>Rejects heat from the chilled water system.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-cooling-water-pump.png" alt="R2 Cooling Water Pump" />
+            <section class="equipment-body">
+              <span class="equipment-tag">HVAC</span>
+              <h3>Cooling Water Pump</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>Mitsubishi.</span></li>
+                <li><strong>Model</strong><span>JEC-21337-2000.</span></li>
+                <li><strong>Capacity</strong><span>1950 GPM / 1560 GPM x 4 units.</span></li>
+                <li><strong>Function</strong><span>Circulates cooling water between chiller and cooling tower.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-ahu-fcu.png" alt="R2 AHU and FCU" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Air Conditioning</span>
+              <h3>AHU and FCU System</h3>
+              <ul class="equipment-details">
+                <li><strong>AHU</strong><span>28 units, YORK / Carrier models.</span></li>
+                <li><strong>FCU</strong><span>45 units, YORK / Carrier models.</span></li>
+                <li><strong>Cooling Range</strong><span>FCU units include 20,800, 26,100 and 39,200 BTU/hr units.</span></li>
+                <li><strong>Function</strong><span>Air handling and room cooling for production and support areas.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-air-split.png" alt="R2 Air Split Type" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Air Conditioning</span>
+              <h3>Air Split Type</h3>
+              <ul class="equipment-details">
+                <li><strong>Old Plant 1st Floor</strong><span>7 units: York, Central Air and Panasonic.</span></li>
+                <li><strong>Extension 1st Floor</strong><span>6 Daikin units.</span></li>
+                <li><strong>Extension 2nd Floor</strong><span>15 Daikin units.</span></li>
+                <li><strong>Function</strong><span>Room-level cooling for office, production and support rooms.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-fat-ict.png" alt="R2 FAT and ICT Machine" />
+            <section class="equipment-body">
+              <span class="equipment-tag">HVAC Process</span>
+              <h3>FAT / ICT Machine</h3>
+              <ul class="equipment-details">
+                <li><strong>FAT System</strong><span>6 units, model FR-30, air flow 280 m³/min.</span></li>
+                <li><strong>ICT System</strong><span>8 units, model FR-80, air flow 700 m³/min.</span></li>
+                <li><strong>Heat Exchanger</strong><span>Shell &amp; tube / plate heat exchanger systems.</span></li>
+                <li><strong>Function</strong><span>Cooling and ventilation support for FAT and ICT equipment.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-oil-mist.png" alt="R2 Oil Mist Machine" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Exhaust</span>
+              <h3>Oil Mist Machine</h3>
+              <ul class="equipment-details">
+                <li><strong>KRUGER Blower</strong><span>15 units at 8000 CFM and 1 unit at 5200 CFM.</span></li>
+                <li><strong>Static Pressure</strong><span>6 in.WG.</span></li>
+                <li><strong>Power</strong><span>380V / 3 Phase / 50Hz, 11 kW or 7.5 kW.</span></li>
+                <li><strong>Function</strong><span>Removes oil mist from CNC and production areas.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-oil-mist-extension.png" alt="R2 Oil Mist Collector Extension" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Exhaust</span>
+              <h3>Oil Mist Collector Extension</h3>
+              <ul class="equipment-details">
+                <li><strong>Oil Mist No.17</strong><span>NICOTRA RDH710K, 13,772 CFM, 7.5 kW.</span></li>
+                <li><strong>Oil Mist No.18</strong><span>NICOTRA RDH710K, 16,068 CFM, 11 kW.</span></li>
+                <li><strong>Oil Mist No.19</strong><span>NICOTRA RDH710K, 12,513 CFM, 5.5 kW.</span></li>
+                <li><strong>Function</strong><span>Oil mist exhaust support for extension production zones.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-fresh-air.png" alt="R2 Fresh Air System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Ventilation</span>
+              <h3>Fresh Air System</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>KRUGER.</span></li>
+                <li><strong>Quantity</strong><span>Total 8 units.</span></li>
+                <li><strong>Air Flow</strong><span>12,000 CFM each, SP 3 in.WG.</span></li>
+                <li><strong>Function</strong><span>Supplies fresh air to BIT-R2 production zones.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-cda.png" alt="R2 CDA System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">CDA</span>
+              <h3>Compressed Dry Air System</h3>
+              <ul class="equipment-details">
+                <li><strong>Air Compressors</strong><span>BOGE S-125 x 8, S-150 x 2, S-180 x 2.</span></li>
+                <li><strong>IR Compressors</strong><span>IR M132VSD-A x 1 and IR M132-AB x 1.</span></li>
+                <li><strong>Network</strong><span>Bypass valve connects old building and extension building.</span></li>
+                <li><strong>Function</strong><span>Supplies compressed dry air for production equipment.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-air-dryer.png" alt="R2 Air Dryer System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">CDA</span>
+              <h3>Air Dryer System</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>ATS.</span></li>
+                <li><strong>Model</strong><span>DAT 300WC.</span></li>
+                <li><strong>Power / Voltage</strong><span>3.58 kW, 400V / 3 Phase / 50Hz.</span></li>
+                <li><strong>Air Flow</strong><span>1765.73 CFM with max inlet pressure 16 bar.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-close-loop-pump.png" alt="R2 Close Loop Pump" />
+            <section class="equipment-body">
+              <span class="equipment-tag">CDA Cooling</span>
+              <h3>Close Loop Pump and Heat Exchanger</h3>
+              <ul class="equipment-details">
+                <li><strong>Pump No.1-2</strong><span>Minamoto GD(2)100-19A, 80 m³/hr, 5.5 kW.</span></li>
+                <li><strong>Pump No.3-4</strong><span>Minamoto GD(2)80-21, 42 m³/hr, 4 kW.</span></li>
+                <li><strong>Heat Exchanger</strong><span>China FDM10-13, quantity 4 units.</span></li>
+                <li><strong>Function</strong><span>Closed-loop cooling support for compressed air and process systems.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-raw-water.png" alt="R2 Raw Water System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Water</span>
+              <h3>Raw Water System</h3>
+              <ul class="equipment-details">
+                <li><strong>Underground Tank</strong><span>Raw water stock tank around 50.33 m³.</span></li>
+                <li><strong>Average Consumption</strong><span>Around 180 m³/day.</span></li>
+                <li><strong>Reserve Time</strong><span>Around 7.82 hours.</span></li>
+                <li><strong>Function</strong><span>Supplies raw water for toilet, canteen, RO, coolant mix and utility systems.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-raw-water-pump.png" alt="R2 Raw Water Pump" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Water</span>
+              <h3>Raw Water Pump</h3>
+              <ul class="equipment-details">
+                <li><strong>Pump No.1-2</strong><span>Ebara 3D/l 50-160/5.5, 24-72 m³/hr, 5.5 kW.</span></li>
+                <li><strong>Pump No.3-4</strong><span>Ebara 3D/l 40-160/4.0, 12-42 m³/hr, 4 kW.</span></li>
+                <li><strong>Voltage</strong><span>380V / 3 Phase / 50Hz.</span></li>
+                <li><strong>Function</strong><span>Transfers raw water from underground tank to utility users.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-ro-drinking.png" alt="R2 RO and Drinking Water" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Water Treatment</span>
+              <h3>RO and Drinking Water System</h3>
+              <ul class="equipment-details">
+                <li><strong>RO System</strong><span>Capacity 10 GPM.</span></li>
+                <li><strong>Drinking Water</strong><span>Capacity 5 GPM.</span></li>
+                <li><strong>RO Pump</strong><span>Grundfos MG80C2-19FT100-H3, 25.5 GPM, 1.1 kW.</span></li>
+                <li><strong>Supply Points</strong><span>Facility shop, canteen, office, locker room, rest area and store warehouse.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-wwtp.png" alt="R2 Wastewater Treatment System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Wastewater</span>
+              <h3>Wastewater Treatment System</h3>
+              <ul class="equipment-details">
+                <li><strong>Capacity</strong><span>90 m³/day.</span></li>
+                <li><strong>Buffer Tank</strong><span>90 m³ buffer tank.</span></li>
+                <li><strong>Waste Stock Tank</strong><span>80 m³ stock tank waste.</span></li>
+                <li><strong>Function</strong><span>Treats wastewater from canteen, toilet, RO water, coolant mix, CNC line and AHU/FCU drain.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-wwtp-chemical.png" alt="R2 Wastewater Chemicals" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Wastewater</span>
+              <h3>WWTP Chemical Dosing</h3>
+              <ul class="equipment-details">
+                <li><strong>Chemical 1</strong><span>Calcium Aluminum Hydroxide / CaOH2.</span></li>
+                <li><strong>Chemical 2</strong><span>Poly Aluminium Chloride / PACl.</span></li>
+                <li><strong>Chemical 3</strong><span>Polymer.</span></li>
+                <li><strong>Function</strong><span>Chemical treatment support for wastewater treatment process.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-fire-alarm.png" alt="R2 Fire Alarm System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Safety</span>
+              <h3>Fire Alarm System</h3>
+              <ul class="equipment-details">
+                <li><strong>Heat Detectors</strong><span>Total 324 heat detectors.</span></li>
+                <li><strong>Smoke Detectors</strong><span>Total 14 smoke detectors.</span></li>
+                <li><strong>Coverage</strong><span>Office, CNC area, canteen, warehouse, utility building and extension zones.</span></li>
+                <li><strong>Function</strong><span>Detects and alerts fire emergency conditions across BIT-R2.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-fire-protection.png" alt="R2 Fire Protection System" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Safety</span>
+              <h3>Fire Protection System</h3>
+              <ul class="equipment-details">
+                <li><strong>Fire Pump</strong><span>NMFIRE NM6-114, rated 255 HP / 90 kW.</span></li>
+                <li><strong>Flow</strong><span>1500 GPM / 175 psi.</span></li>
+                <li><strong>Sprinklers</strong><span>Total sprinkler heads: 1,146.</span></li>
+                <li><strong>Fire Hose Cabinet</strong><span>15 points including old plant and extension zones.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-fire-tank.png" alt="R2 Fire Pump Underground Tank" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Safety</span>
+              <h3>Fire Pump Underground Tank</h3>
+              <ul class="equipment-details">
+                <li><strong>Actual Capacity</strong><span>278.44 m³.</span></li>
+                <li><strong>Designed Tank Reference</strong><span>Around 346.45 m³ physical tank volume.</span></li>
+                <li><strong>Backup Time</strong><span>Around 48 minutes fire water backup.</span></li>
+                <li><strong>Function</strong><span>Stores fire protection water for sprinkler and hose cabinet systems.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-emergency-light.png" alt="R2 Emergency Light and Fire Exit" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Safety</span>
+              <h3>Emergency Light and Fire Exit</h3>
+              <ul class="equipment-details">
+                <li><strong>Old Plant</strong><span>Emergency light total: 66 EA.</span></li>
+                <li><strong>1st Floor</strong><span>Emergency light total: 15 EA.</span></li>
+                <li><strong>2nd Floor</strong><span>Emergency light total: 2 EA.</span></li>
+                <li><strong>Fire Exit Door</strong><span>Total 17 fire exit doors.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-fire-extinguisher.png" alt="R2 Fire Extinguishers" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Safety</span>
+              <h3>Fire Extinguishers Layout</h3>
+              <ul class="equipment-details">
+                <li><strong>Coverage</strong><span>Applies to all BIT-R2 areas.</span></li>
+                <li><strong>Area</strong><span>Production, office, canteen, warehouse, utility and extension zones.</span></li>
+                <li><strong>Function</strong><span>Portable firefighting support for early fire response.</span></li>
+                <li><strong>Safety Part</strong><span>Part C safety system.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-generator.png" alt="R2 Generator Machine" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Backup Power</span>
+              <h3>Generator Machine</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>STAMFORD with Deepsea DSE 7320 controller.</span></li>
+                <li><strong>Rated Power</strong><span>22 kW / 27 kVA / 39 Amp.</span></li>
+                <li><strong>Voltage</strong><span>230 / 400V, 50Hz, 1500 RPM.</span></li>
+                <li><strong>Backup Time</strong><span>6.6 hours with 50 L stock tank.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-ups.png" alt="R2 UPS Machine" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Backup Power</span>
+              <h3>UPS Machine</h3>
+              <ul class="equipment-details">
+                <li><strong>Brand</strong><span>SOCOMEC.</span></li>
+                <li><strong>Model</strong><span>ITYP310M02D.</span></li>
+                <li><strong>Normal Power</strong><span>10 kVA / 9 kW.</span></li>
+                <li><strong>Backup Time</strong><span>15 minutes.</span></li>
+              </ul>
+            </section>
+          </article>
+
+          <article class="equipment-card">
+            <img src="assets/drawings/r2-septic-grease.png" alt="R2 Septic Tank and Grease Trap" />
+            <section class="equipment-body">
+              <span class="equipment-tag">Sanitary</span>
+              <h3>Septic Tank and Grease Trap</h3>
+              <ul class="equipment-details">
+                <li><strong>Toilet Tanks</strong><span>Zone capacities include 20,000 L, 10,000 L, 5,000 L, 4,000 L and 2,000 L tanks.</span></li>
+                <li><strong>Grease Trap</strong><span>R2 grease trap: 8,400 L.</span></li>
+                <li><strong>Coverage</strong><span>Supports toilet zones and canteen wastewater.</span></li>
+                <li><strong>Function</strong><span>Pre-treatment before wastewater discharge/treatment.</span></li>
+              </ul>
+            </section>
+          </article>
         </div>
       </div>
     </section>
@@ -116,88 +626,76 @@
     <p>Belton Technology | Facility Portal</p>
   </footer>
 
-  <script src="script.js"></script>
-
   <div class="text-zoom-box">
     <button onclick="changeTextSize(-1)" type="button">A-</button>
     <button onclick="changeTextSize(1)" type="button">A+</button>
   </div>
 
-  <style>
-    .text-zoom-box {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      display: flex;
-      gap: 12px;
-      background: white;
-      padding: 14px 18px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      z-index: 99999;
-    }
-
-    .text-zoom-box button {
-      font-size: 18px;
-      font-weight: 700;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      color: black;
-    }
-
-    .equipment-grid {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 28px !important;
-      height: auto !important;
-      min-height: auto !important;
-      overflow: visible !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-
-    .equipment-card,
-    .equipment-card:nth-child(n) {
-      display: block !important;
-      height: auto !important;
-      min-height: auto !important;
-      overflow: visible !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: none !important;
-    }
-
-    .equipment-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-
-    @media (max-width: 900px) {
-      .equipment-grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-  </style>
-
   <script>
+    /* Safe carousel script only. Do not load script.js on this page. */
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileNav = document.getElementById("mobileNav");
+
+      if (hamburgerBtn && mobileNav) {
+        hamburgerBtn.addEventListener("click", function () {
+          mobileNav.classList.toggle("show-menu");
+        });
+      }
+
+      const carousel = document.querySelector(".building-hero-carousel");
+      const track = document.querySelector(".carousel-track");
+      const slides = document.querySelectorAll(".carousel-track img");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      if (carousel && track && slides.length > 0 && prevBtn && nextBtn) {
+        let currentSlide = 0;
+        let autoSlide;
+
+        function showSlide(index) {
+          if (index >= slides.length) currentSlide = 0;
+          else if (index < 0) currentSlide = slides.length - 1;
+          else currentSlide = index;
+
+          track.style.transform = "translateX(-" + currentSlide * 100 + "%)";
+        }
+
+        function startAutoSlide() {
+          clearInterval(autoSlide);
+          autoSlide = setInterval(function () {
+            showSlide(currentSlide + 1);
+          }, 4000);
+        }
+
+        nextBtn.addEventListener("click", function () {
+          clearInterval(autoSlide);
+          showSlide(currentSlide + 1);
+          startAutoSlide();
+        });
+
+        prevBtn.addEventListener("click", function () {
+          clearInterval(autoSlide);
+          showSlide(currentSlide - 1);
+          startAutoSlide();
+        });
+
+        startAutoSlide();
+      }
+    });
+
     let zoomAmount = Number(localStorage.getItem("zoomAmount")) || 0;
 
     function changeTextSize(direction) {
       zoomAmount += direction;
-
       if (zoomAmount > 4) zoomAmount = 4;
       if (zoomAmount < -3) zoomAmount = -3;
-
       localStorage.setItem("zoomAmount", zoomAmount);
       applyTextSize();
     }
 
     function applyTextSize() {
-      const elements = document.querySelectorAll(
-        "h1, h2, h3, h4, h5, h6, p, a, li, span, dt, dd"
-      );
+      const elements = document.querySelectorAll("h1, h2, h3, p, a, li, span, strong");
 
       elements.forEach(function (el) {
         if (el.closest(".text-zoom-box")) return;
